@@ -18,7 +18,7 @@ function RecentMatch({match}) {
     //element.startTime - element.state - element.league.name - element.match.teams[0].name  element.match.teams[0].image - element.match.teams[0].result.outcome - element.match.teams[0].result.gameWins - vs element.match.teams[1].name - 
   
   return (
-    <div className='mt-10  bg-blue-700 border-8 border-gray-900 w-full h-full'>
+    <div className='mt-10  bg-blue-700 border-8 border-gray-900 w-full h-full mb-10'>
         <div className='text-center mt-10 text-5xl'>{match?.blockName}<span > {match?.name}</span></div>
         
           <div className='flex justify-center gap-20 p-10'>
