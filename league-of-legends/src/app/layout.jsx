@@ -18,11 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <FavTeamProvider>
-        <body className='bg-hexablack '>
+        <body className='bg-hexablack font-sans '>
             <Header/>
           {children}
         </body>
-       </FavTeamProvider>
+      </FavTeamProvider>
     </html>
   )
 }

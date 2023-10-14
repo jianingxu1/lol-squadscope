@@ -39,9 +39,7 @@ export function useRecent(){
         const filterGames = tournament.filter(element=>element.match.teams[0].name === `${favTeam.name}`  || element.match.teams[1].name ===`${favTeam.name}`)
         
         setFavTeamGames(filterGames) 
-        setTimeout(() => {
-            setCargando(false); 
-        }, 3000);
+        
    
         }catch(error){
           console.log(error)
