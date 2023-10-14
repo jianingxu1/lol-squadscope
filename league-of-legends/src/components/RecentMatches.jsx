@@ -52,9 +52,9 @@ function RecentMatches() {
            </>
             :  
             <div className='mt-10 h-64 bg-hexablack border-8 border-gray-900 w-full'>
-            <div className='text-center my-10 text-5xl'>
-              <p>Not recent games</p>
-            </div>
+              <div className='text-center my-10 text-5xl'>
+                <p>Not recent games</p>
+              </div>
             </div>
           }
         </div>

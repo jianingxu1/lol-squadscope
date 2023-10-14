@@ -4,7 +4,6 @@ import { useTeams } from "./useTeams";
 export function useLeagues(){
     const [leagues,setLeagues] = useState([]);
     const getLeagues =async()=>{
-      
         const url ="https://esports-api.lolesports.com/persisted/gw/getLeagues?hl=en-US";
         const res = await fetch(url,{
           headers:{
@@ -13,7 +12,6 @@ export function useLeagues(){
         });
         //SE BUSCAN LOS EQUIPOS -> TODOS LOS EQUIPOS
         const {data} = await res.json();
-       
        
         const leagues = data.leagues.filter(element=>element.region !== "INTERNATIONAL")
         const newObj = leagues.map(element=>{

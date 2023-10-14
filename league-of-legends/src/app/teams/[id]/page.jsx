@@ -14,31 +14,29 @@ function TeamPage({params}) {
     const [deleteTeam,setDelete] = useState(false);
     const deleteFav=()=>{
       setFavTeam({});
-     
       router.push("/")
       localStorage.setItem("favTeam",JSON.stringify({}))
     }
     useEffect(()=>{
         if(!teams)return;
         const team = teams.find(element=>element.name === name);
-        
         setTeam(team);
     },[teams])
     
   return (
-
      <main className='container mx-auto'>
         <button className=' text-white' onClick={()=>setDelete(!deleteTeam)}>
           <AiFillDelete className='text-4xl'/>
         </button>
         {deleteTeam && 
         <div className='absolute bg-slate-100 text-red-700 px-5 py-5 font-bold text-2xl flex flex-col gap-10'> 
-        <p>YOU ARE GOING TO DELETE YOUR FAVOURITE TEAM!</p>
-        <div className='flex justify-between'>
-        <button className='bg-red-500 py-5 px-2 rounded-lg hover:bg-red-700 text-white' onClick={()=>deleteFav()}>Delete Team</button>
-        <button className=' bg-hexblack py-5 px-2 rounded-lg hover:bg-gray-800 text-white' onClick={()=>setDelete(!deleteTeam)}>Back</button>
+          <p>YOU ARE GOING TO DELETE YOUR FAVOURITE TEAM!</p>
+          <div className='flex justify-between'>
+            <button className='bg-red-500 py-5 px-2 rounded-lg hover:bg-red-700 text-white' onClick={()=>deleteFav()}>Delete Team</button>
+            <button className=' bg-hexblack py-5 px-2 rounded-lg hover:bg-gray-800 text-white' onClick={()=>setDelete(!deleteTeam)}>Back</button>
+          </div>
         </div>
-        </div>}
+        }
        <h2 className='text-white text-3xl text-center'>{team?.name}</h2>
     </main>
  

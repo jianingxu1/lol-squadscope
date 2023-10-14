@@ -37,8 +37,11 @@ export function useRecent(){
         const {data} = await res.json();
         const tournament = data.schedule.events
         const filterGames = tournament.filter(element=>element.match.teams[0].name === `${favTeam.name}`  || element.match.teams[1].name ===`${favTeam.name}`)
+        
         setFavTeamGames(filterGames) 
-        setCargando(false); 
+        setTimeout(() => {
+            setCargando(false); 
+        }, 3000);
    
         }catch(error){
           console.log(error)

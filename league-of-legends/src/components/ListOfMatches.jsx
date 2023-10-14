@@ -13,14 +13,14 @@ function ListOfMatches() {
   return (
     <section className={`flex overflow-hidden border-b border-grey-300 relative `}>
       <div className="w-full ">
-        
         <div className={`flex text-center transition-transform  duration-500`} 
         style={{transform: `translateX(${-position}px)`}}>
         {cargando? <CargandoMatches type="Matches">Loading Games...</CargandoMatches> : matchs && matchs.map(element=> <Match match={element} key={element.match?.id}/>)}
         </div>
       </div>
-      {<div className='hidden md:block'>
-    <button onClick={()=>setPosition(position+350)} className='absolute top-0 opacity-50 bg-slate-500 w-12 h-full right-0'> {">"}</button>
+      {
+      <div className='hidden md:block'>
+      <button onClick={()=>setPosition(position+350)} className='absolute top-0 opacity-50 bg-slate-500 w-12 h-full right-0'> {">"}</button>
       {position > 0 && <button onClick={()=>setPosition(position-350)} className='absolute top-0 opacity-50 bg-slate-500 w-12 h-full left-0'> {"<"}</button>}
       </div>
       }

@@ -56,34 +56,36 @@ function Modal() {
     {error && <Error>{error}</Error>}
        <div className='flex gap-2 justify-center w-full'>
         <div className='ml-10 w-4/5 flex justify-center gap-5'>
-        <input onChange={e=>setTeam(e.target.value)} value={team} type='text' className='py-2 border-2 border-blue-100' placeholder='Write your favourite team'></input>
-        <input type="submit" className='text-white bg-blue-200 px-5 py-2 uppercase font-bold cursor-pointer hover:bg-blue-300 transition-all duration-500'  value="SEARCH TEAM"/>
+            <input onChange={e=>setTeam(e.target.value)} value={team} type='text' className='py-2 border-2 border-blue-100' placeholder='Write your favourite team'></input>
+            <input type="submit" className='text-white bg-blue-200 px-5 py-2 uppercase font-bold cursor-pointer hover:bg-blue-300 transition-all duration-500'  value="SEARCH TEAM"/>
         </div>
+
         <FilterLeague leagues={leagues} setSelectLeague={setSelectLeague} selectLeague={selectLeague}/>
+
        </div>
     </form>
-    {filterLeague.id && 
-    <div className='flex font-bold text-3xl bg-slate-600 opacity-100 py-2 px-5 items-center shadow-xl border-2 border-cyan-200 text-white'>
-    <p className='text-white'>{filterLeague.name}</p>
-    <img src={filterLeague.image} alt={`imagen liga ${filterLeague.name}` } width={60} height={60}/>
-    </div>
-    }
-    <div className={`grid grid-cols-1 ${results.length === 2 ? "grid-cols-3" : results.length > 2 &&  results.length >= 3 && "grid-cols-4"} gap-5 `}>
-    {results.length>0  ?
-    <>
-    {
+        {filterLeague.id && 
+        <div className='flex font-bold text-3xl bg-slate-600 opacity-100 py-2 px-5 items-center shadow-xl border-2 border-cyan-200 text-white'>
+            <p className='text-white'>{filterLeague.name}</p>
+            <img src={filterLeague.image} alt={`imagen liga ${filterLeague.name}` } width={60} height={60}/>
+        </div>
+        }
+        <div className={`grid grid-cols-1 ${results.length === 2 ? "grid-cols-3" : results.length > 2 &&  results.length >= 3 && "grid-cols-4"} gap-5 `}>
+        {results.length>0  ?
+        <>
+        {
         results.map(element=>
             <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true)}} value={element.name} key={element.id} className='bg-blue-900 p-5  flex flex-col items-center gap-2 '>
                 <img src={element.image} alt={`Imagen equipo ${element.name}`} width={50} height={50} className='filter sepia-50'></img>
-               <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
-               <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
-               <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p>
+                <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
+                <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
+                <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p>
             </button>
             )
-    }
-    </>
+        }
+        </>
         :emptyTeams && <p className='text-white'>No hay resultados</p>
-    }
+        }
     </div>
    </div>
   )
