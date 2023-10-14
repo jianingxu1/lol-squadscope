@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+ 
+}
+body {
+ 
+}
+h1,h2,h3,h4,h5{
+    @apply uppercase tracking-wide text-gold-100;
+    font-family: 'Beaufort';
+    @apply text-gold-100;
+    font-weight: bold;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.slideshow-container {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.slide {
+  display: none;
+  transition: opacity 1s;
+}
+
+.fade {
+  display: block;
+  opacity: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.prev {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+button.next {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+  @keyframes animate {
+    0% {
+     
+      transform: translate(-100%);
+    }
+    50% {
+    }
+    100%{
+       
+      transform:translate(0);
+    }
+  }
+  @keyframes cerrar-matches{
+    0%{
+      opacity: 1;
+    }
+    90%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+  .cerrar-matches{
+    animation: cerrar-matches 1s;
+  }
+  @keyframes cerrar{
+    0%{
+      opacity:1;
+      transform: translate(0);
+    }
+   50%{
+    opacity: 1;
+   }
+    100%{
+      opacity: 0;
+      transform: translate(100%);
+    }
+  }
+  .cerrar{
+    animation: cerrar 1s ease;
+  }
+.animates{
+  animation: animate 1s ;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tw-bg-opacity: 1;
+    background-color: rgb(1 10 19 / var(--tw-bg-opacity));
+  }
+}
+.font-beaufort{
+  font-family: "Beufort";
+}
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
