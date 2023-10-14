@@ -19,7 +19,7 @@ function ListOfMatches() {
         </div>
       </div>
       {
-      <div className='hidden md:block'>
+      <div className=''>
       <button onClick={()=>setPosition(position+350)} className='absolute top-0 opacity-50 bg-slate-500 w-12 h-full right-0'> {">"}</button>
       {position > 0 && <button onClick={()=>setPosition(position-350)} className='absolute top-0 opacity-50 bg-slate-500 w-12 h-full left-0'> {"<"}</button>}
       </div>

@@ -15,7 +15,7 @@ function Header() {
   const {cargando} =  useTeams();
 
   return (
-    <header className='container mx-auto pt-10 '>
+    <header className='container mx-auto pt-10 px-2'>
       <nav className='flex justify-between items-center'>
       <Link href="/" > <Image src="/img/lol_logo.png" alt="Imagen logo League of legends" width={100} height={100}></Image> </Link>
         <h1 className='font-beaufort md:text-5xl font-bold uppercase'>LOL SQUADSCOPE</h1>

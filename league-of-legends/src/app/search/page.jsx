@@ -88,10 +88,10 @@ function SearchPage() {
         setError("")
     },[selectLeague])
   return (  
-   <div className={`mt-10  flex  container mx-auto flex-col items-center gap-10 `}>
+   <section className={`mt-10  flex  container mx-auto flex-col items-center gap-10 `}>
    <h2 className='text-2xl font-extrabold font-sans'>Choose your favorite team and follow all their information!</h2>
   
-    <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
+    <form onSubmit={handleSubmit} className='w-full mx-auto container flex flex-col items-center'>
     {error && <Error>{error}</Error>}
        <div className='flex gap-2 justify-center w-full'>
         <div className='ml-10 w-4/5 flex justify-center gap-5'>
@@ -158,7 +158,7 @@ function SearchPage() {
         emptyTeams && <p className='text-white'>No hay resultados</p>
         }
     </div>
-   </div>
+   </section>
   )
 }
 
