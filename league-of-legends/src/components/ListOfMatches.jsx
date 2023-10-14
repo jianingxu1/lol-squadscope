@@ -1,9 +1,9 @@
 "use client"
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 import Match from './Match';
 import { filterMatchStatus, useMatches } from '@/hooks/useMatches';
 import FavTeamContext from '@/context/FavTeam';
-import CargandoMatches from './CargandoMatches';
+import CargandoMatches from './Loading';
 
 function ListOfMatches() {
   const {matches:games,cargando} = useMatches();
@@ -25,6 +25,7 @@ function ListOfMatches() {
       </div>
       }
     </section>
+   
   )
 }
 

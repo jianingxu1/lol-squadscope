@@ -4,6 +4,7 @@ import FavTeamContext from '@/context/FavTeam';
 import React, { useContext } from 'react'
 import RecentMatches from './recentMatches';
 import Modal from './Modal';
+import NextGames from './NextGames';
 
 function App() {
     const {modal} = useContext(FavTeamContext);
@@ -18,6 +19,7 @@ function App() {
     :(
       <>
         <ListOfMatches/>
+        <NextGames/>
         <RecentMatches/>
       </>
     )

@@ -2,19 +2,17 @@
 import FavTeamContext from '@/context/FavTeam'
 import { useLeagues } from '@/hooks/useLeagues';
 import { useTeams } from '@/hooks/useTeams'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 import RecentMatch from './RecentMatch';
-import CargandoMatches from './CargandoMatches';
+import CargandoMatches from './Loading';
 import { useRecent } from '@/hooks/useRecentMatches';
 
 function RecentMatches() {
+  
   const {favTeam,cargando,favTeamGames} = useRecent();
     const [currentIndex, setCurrentIndex] = useState(0);
     const disableNext = currentIndex===favTeamGames.length - 1;
     const disablePrev = currentIndex >=1;
- 
-      console.log(cargando);
-      
       const showNextElement = (index) => {
         if(disableNext) return;
         setCurrentIndex(currentIndex + 1);
@@ -34,7 +32,6 @@ function RecentMatches() {
           
           {
             cargando
-            
             ? 
             <CargandoMatches >Loading recent matches of your favourite team </CargandoMatches>
             :
@@ -46,7 +43,6 @@ function RecentMatches() {
             </div>
             </div>
             :
-            
             favTeamGames.length> 1 
             ?
              <>
@@ -60,14 +56,8 @@ function RecentMatches() {
               <p>Not recent games</p>
             </div>
             </div>
-            
           }
-          
-
-        
         </div>
-        
-       
     </section>
   )
 }

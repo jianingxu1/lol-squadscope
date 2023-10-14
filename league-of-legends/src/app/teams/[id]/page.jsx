@@ -3,7 +3,7 @@ import FavTeamContext from '@/context/FavTeam';
 import { useTeams } from '@/hooks/useTeams'
 import { useRouter } from 'next/navigation';
 import {AiFillDelete} from "react-icons/ai"
-import React, { useContext, useEffect, useState } from 'react'
+import React, { Suspense, useContext, useEffect, useState } from 'react'
 
 function TeamPage({params}) {
     const router = useRouter();
@@ -26,7 +26,8 @@ function TeamPage({params}) {
     },[teams])
     
   return (
-    <main className='container mx-auto'>
+
+     <main className='container mx-auto'>
         <button className=' text-white' onClick={()=>setDelete(!deleteTeam)}>
           <AiFillDelete className='text-4xl'/>
         </button>
@@ -40,6 +41,7 @@ function TeamPage({params}) {
         </div>}
        <h2 className='text-white text-3xl text-center'>{team?.name}</h2>
     </main>
+ 
   )
 }
 

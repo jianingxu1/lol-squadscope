@@ -20,8 +20,9 @@ export function useMatches(){
       setCargando(false);
       setMatches(data.schedule.events);
         }catch(error){console.log(error)}
-    
-      
+        finally{
+          setCargando(false);
+        }
       }
       getMatches();
     

@@ -15,7 +15,6 @@ function FilterLeague({setSelectLeague,selectLeague,leagues}) {
             }
             )}
         </select>
-       
     </div>
   )
 }

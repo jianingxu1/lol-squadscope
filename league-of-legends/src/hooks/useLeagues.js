@@ -4,6 +4,7 @@ import { useTeams } from "./useTeams";
 export function useLeagues(){
     const [leagues,setLeagues] = useState([]);
     const getLeagues =async()=>{
+      
         const url ="https://esports-api.lolesports.com/persisted/gw/getLeagues?hl=en-US";
         const res = await fetch(url,{
           headers:{

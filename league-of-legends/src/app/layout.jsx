@@ -19,11 +19,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
        <FavTeamProvider>
       <body className='bg-hexablack '>
-     
           <Header/>
-         
         {children}
-   
         </body>
         </FavTeamProvider>
     </html>

@@ -15,34 +15,43 @@ function Match({match}) {
   return (
     <div className='flex h-52 w-60 shrink-0 flex-col items-center gap-2 justify-center border-l border-t border-grey-300 bg-blue-700 py-1'>
         <div>
-        <div className=' text-lg font-bold text-grey-100'>{match.state ==="inProgress"? <p className='font-bold text-red-600 '> NOW </p>:isToday(match?.startTime)? "TODAY" : esManana(match.startTime) ? "TOMORROW" : <div>{fecha}</div>}</div>
-        
-        {
+          <div className=' text-lg font-bold text-grey-100'>
+            {match.state ==="inProgress"
+            ? 
+            <p className='font-bold text-red-600 '> 
+            NOW </p>:isToday(match?.startTime)
+            ? <p>Today</p>
+            : esManana(match.startTime) 
+            ? <p>TOMORROW</p> 
+            : <p>{fecha}</p>}
+          </div>
+          {
           match.state==="inProgress"?
           <p className='font-bold text-red-600'>NOW</p>:
           <>
-          
-        <div className=' text-white font-bold'>
-        <div className=' flex items-center gap-2 w-full '>
-        <img src={teamOne?.image} className=" object-cover" alt={`Image team ${teamOne}`} width={40} height={40}/>
-        <div>    {teamOne?.name}  </div>
-        </div>
-    
-        <div className='flex items-center gap-2 w-full'>
-        <img src={teamTwo?.image} alt={`Image team ${teamTwo}`} width={40} height={40}/>
-        <div>{teamTwo?.name}</div>
-      </div>
-        
-        </div>
-        <div className='text-white'>
-        {horaFormateada}
-
-        </div>
+          <div className=' text-white font-bold'>
+            <div className=' flex items-center gap-2 w-full '>
+              <img src={teamOne?.image} className=" object-cover" alt={`Image team ${teamOne}`} width={40} height={40}/>
+              <div>    
+                <p>{teamOne?.name} </p> 
+              </div>
+            </div>
+            <div className='flex items-center gap-2 w-full'>
+              <img src={teamTwo?.image} alt={`Image team ${teamTwo}`} width={40} height={40}/>
+              <div>
+                <p>{teamTwo?.name}</p>
+              </div>
+            </div>
+          </div>
+          <div className='text-white'>
+            <p>{horaFormateada}</p>
+          </div>
           </>
-        }
-      <div className='text-white font-bold'>{match?.league.name}</div>  
-        </div>
-      
+          }
+        <div className='text-white font-bold'>
+          <p>{match?.league.name}</p>
+        </div>  
+      </div>
     </div>
   )
 }

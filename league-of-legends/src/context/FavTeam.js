@@ -4,22 +4,19 @@ import { useTeams } from '@/hooks/useTeams';
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const FavTeamContext = createContext();
-
 const FavTeamProvider = ({ children }) => {
   const [modal,setModal] = useState(false);
- 
   const[animarCerrar,setAnimarCerrar] = useState(false);
   const [favTeam,setFavTeam] = useState({});
   const {leagues} = useLeagues();
   const {teams} = useTeams();
   const getLocalStorage =()=>{
     const team = JSON.parse(localStorage.getItem("favTeam"));
-  
     if(team.id)
     {
       setFavTeam(team);
     }else{
-      console.log("error")
+      console.log("Not favourite team")
     }
   }
   useEffect(()=>{
@@ -34,10 +31,7 @@ const FavTeamProvider = ({ children }) => {
    else{
     setModal(true)
    }
-
 }
-
- 
   return (
     <FavTeamContext.Provider value={{
       setAnimarCerrar,animarCerrar, modal,changeModal,setFavTeam,favTeam,leagues,teams}}>

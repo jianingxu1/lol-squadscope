@@ -4,31 +4,28 @@ import { useTeams } from '@/hooks/useTeams';
 import React, { useContext, useEffect, useState } from 'react'
 import Error from './Error';
 import FilterLeague from './FilterLeague';
-import { useLeagues } from '@/hooks/useLeagues';
-
 function Modal() {
     const {setFavTeam,changeModal,animarCerrar,setAnimarCerrar,leagues,teams} = useContext(FavTeamContext)
     const [team,setTeam] = useState("");
     const [results,setResults] = useState([])
     const [error,setError] = useState();
- 
     const [selectLeague,setSelectLeague] = useState("");
     const [filterLeague,setFilterLeague] = useState({});
     const [emptyTeams,setEmptyTeams] = useState(false);
     const handleSubmit= e=>{
         e.preventDefault();
         if(team ===""){setError("Write a team neam") ;return; }
-        else if (team.length===1) {setError("Write more than one character") ;return; }
-        const teamsS = teams.filter(element=>element.name.toLowerCase().includes(`${team.toLowerCase()}`));
-        console.log(teamsS);
-        if(teamsS.length > 0  ){
-            setResults(teamsS)
-            setEmptyTeams(false);
-            setError("");
-            setTeam("");
-            setSelectLeague("");
-            setFilterLeague({})
-        }
+            else if (team.length===1) {setError("Write more than one character");return; }
+                const teamsS = teams.filter(element=>element.name.toLowerCase().includes(`${team.toLowerCase()}`));
+                console.log(teamsS);
+                if(teamsS.length > 0  ){
+                    setResults(teamsS)
+                    setEmptyTeams(false);
+                    setError("");
+                    setTeam("");
+                    setSelectLeague("");
+                    setFilterLeague({})
+                }
         else{
             setEmptyTeams(true);
             setError("")
@@ -37,20 +34,15 @@ function Modal() {
             setResults([])
         }
     }
-   
     const handleFavTeam =(element)=>{
         setFavTeam(element);
-        console.log(element);
         if(element!=null)
         localStorage.setItem("favTeam",JSON.stringify(element))
     }
-    useEffect(()=>{
-     
-    },[team])
+   
     useEffect(()=>{
         if(!selectLeague) return;
         const teamsS = teams.filter(element=>element.homeLeague.name === selectLeague);
-       
         setFilterLeague(leagues.find(element=>element.name === selectLeague));
        // console.log(teamsS);
         setResults(teamsS);
@@ -60,8 +52,6 @@ function Modal() {
    <div className={`mt-10  flex  container mx-auto flex-col items-center gap-10 ${animarCerrar? "animates" : "cerrar opacity-0"}`}>
    <h2 className='text-2xl font-extrabold font-sans'>Choose your favorite team and follow all their information!</h2>
   
-  
-    
     <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
     {error && <Error>{error}</Error>}
        <div className='flex gap-2 justify-center w-full'>
@@ -72,8 +62,6 @@ function Modal() {
         <FilterLeague leagues={leagues} setSelectLeague={setSelectLeague} selectLeague={selectLeague}/>
        </div>
     </form>
-
-
     {filterLeague.id && 
     <div className='flex font-bold text-3xl bg-slate-600 opacity-100 py-2 px-5 items-center shadow-xl border-2 border-cyan-200 text-white'>
     <p className='text-white'>{filterLeague.name}</p>
@@ -83,7 +71,6 @@ function Modal() {
     <div className={`grid grid-cols-1 ${results.length === 2 ? "grid-cols-3" : results.length > 2 &&  results.length >= 3 && "grid-cols-4"} gap-5 `}>
     {results.length>0  ?
     <>
-   
     {
         results.map(element=>
             <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true)}} value={element.name} key={element.id} className='bg-blue-900 p-5  flex flex-col items-center gap-2 '>

@@ -5,6 +5,7 @@ export function useRecent(){
     const [favTeamGames,setFavTeamGames] = useState([])
     const [cargando,setCargando] = useState(true);
     const {favTeam} = useContext(FavTeamContext)
+    
     useEffect(()=>{
         const getMatches=async()=>{
             if(favTeam.name){
