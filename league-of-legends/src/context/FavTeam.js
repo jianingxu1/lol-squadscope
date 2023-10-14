@@ -34,7 +34,7 @@ const FavTeamProvider = ({ children }) => {
 }
   return (
     <FavTeamContext.Provider value={{
-      setAnimarCerrar,animarCerrar, modal,changeModal,setFavTeam,favTeam,leagues,teams}}>
+      setAnimarCerrar,animarCerrar, setFavTeam,favTeam,leagues,teams}}>
       {children}
     </FavTeamContext.Provider>
   );

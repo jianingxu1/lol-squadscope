@@ -4,10 +4,8 @@ import { useTeams } from '@/hooks/useTeams'
 import { useRouter } from 'next/navigation';
 import {AiFillDelete} from "react-icons/ai"
 import React, { Suspense, useContext, useEffect, useState } from 'react'
-import Modal from '@/components/Modal';
 
 function TeamPage({params}) {
-  const {modal} = useContext(FavTeamContext);
     const router = useRouter();
     const name = params.id.replace(/%20/g,' ');
     const {teams} = useTeams();
@@ -28,10 +26,6 @@ function TeamPage({params}) {
   return (
     
      <div className='container mx-auto'>
-        {modal ?
-        <Modal/>:
-        <>
-        
         <button className=' text-white' onClick={()=>setDelete(!deleteTeam)}>
           <AiFillDelete className='text-4xl'/>
         </button>
@@ -47,10 +41,6 @@ function TeamPage({params}) {
        <main>
         <h2 className='text-white text-3xl text-center'>{team?.name}</h2>
        </main>
-       
-       
-       </>  
-      }
     </div>
  
   )
