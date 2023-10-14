@@ -8,10 +8,8 @@ import CargandoMatches from './CargandoMatches';
 function ListOfMatches() {
   const {matches:games,cargando} = useMatches();
   const [position,setPosition] = useState(0);
-  console.log(cargando)
   //Games que aun no se han completado de TODAS las ligas. TODO -> Filtrar por LIGA 
   const matchs = filterMatchStatus(games);
-  console.log(matchs);
   return (
     <section className={`flex overflow-hidden border-b border-grey-300 relative `}>
       <div className="w-full ">

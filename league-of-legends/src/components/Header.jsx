@@ -10,23 +10,24 @@ import { useMatches } from '@/hooks/useMatches'
 import { useTeams } from '@/hooks/useTeams'
 function Header() {
   const {changeModal,modal,favTeam,setAnimarCerrar} = useContext(FavTeamContext);
-  const {teams} =  useTeams();
-  const[myTeam,setMyTeam] = useState({})
-  useEffect(()=>{
-    const team = teams.filter(element=>element.name ===favTeam.name)
-    setMyTeam(team[0]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[favTeam,teams])
+  const {cargando} =  useTeams();
+
   return (
     <header className='container mx-auto '>
      <nav className='flex justify-between items-center'>
      <Link href="/"> <Image src="/img/lol_logo.png" alt="Imagen logo League of legends" width={100} height={100}></Image> </Link>
       <h1 className='font-beaufort text-5xl font-bold uppercase'>LOL SQUADSCOPE</h1>
-      {favTeam.name? 
-      <Link href={`/teams/${myTeam?.name}`}>
-      <div className='text-white bg-slate-700 px-5 py-2 mb-2 cursor-pointer flex items-center gap-2' >
-        <p className='text-center font-extrabold'>{myTeam?.name}</p>
-        <img src={myTeam?.image} alt={`Image team ${myTeam?.name}`} width={50} height={50}/>
+      {
+      cargando  ?
+      <div className='text-white h-24 text-center bg-slate-700 px-5 py-2 mb-2 cursor-pointer flex items-center gap-2' >
+       <h3 className='text-center font-extrabold '>Loading</h3> 
+      </div>
+      :
+      favTeam.name? 
+      <Link href={`/teams/${favTeam.name}`}>
+      <div className='text-white h-24 bg-slate-700 px-5 py-2 mb-2 cursor-pointer flex items-center gap-2' >
+        <p className='text-center font-extrabold'>{favTeam?.name}</p>
+        <img src={favTeam?.image} alt={`Image team ${favTeam?.name}`} width={50} height={50}/>
       </div>
       </Link>
       :

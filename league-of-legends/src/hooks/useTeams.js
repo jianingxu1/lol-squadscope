@@ -2,6 +2,7 @@ import React,{ useState,useEffect } from "react";
 
 export function useTeams(){
     const [teams,setTeams] = useState([]);
+    const [cargando,setCargando] = useState(true)
     const getTeams =async()=>{
       try{
         const url ="https://esports-api.lolesports.com/persisted/gw/getTeams?hl=en-US";
@@ -19,9 +20,10 @@ export function useTeams(){
       //console.log(data)
       setTeams(teams);
       }catch(error){console.log(error)}
+      finally{setCargando(false)}
     }
     useEffect(()=>{
         getTeams();
     },[])
-    return{teams}
+    return{teams,cargando}
   }

@@ -19,7 +19,7 @@ function RecentMatch({match}) {
   
   return (
     <div className='mt-10  bg-blue-700 border-8 border-gray-900 w-full h-full'>
-        <div className='text-center mt-10 text-5xl'>{blockName}<span > {name}</span></div>
+        <div className='text-center mt-10 text-5xl'>{match?.blockName}<span > {match?.name}</span></div>
         <div className='flex justify-center gap-20 p-10'>
           
            <div className='flex flex-col items-center w-full overflow-hidden'>
@@ -46,7 +46,6 @@ function RecentMatch({match}) {
            <div className='text-xl'>{fecha}</div>
            <div className='text-xl'>{horaSinCero(hora)}</div>
         </div>
-     
     </div>
   )
 }
