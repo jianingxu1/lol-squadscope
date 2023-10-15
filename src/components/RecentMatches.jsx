@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import FavTeamContext from '@/context/FavTeam'
-import { useLeagues } from '@/hooks/useLeagues';
-import { useTeams } from '@/hooks/useTeams'
-import React, { Suspense, useContext, useEffect, useState } from 'react'
+
+import React, {  useState } from 'react'
 import RecentMatch from './RecentMatch';
 import CargandoMatches from './Loading';
 import { useRecent } from '@/hooks/useRecentMatches';
