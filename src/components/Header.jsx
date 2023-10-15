@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavTeamContext from '@/context/FavTeam'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,7 +8,6 @@ import {IoIosAddCircleOutline} from "react-icons/io"
 import {AiOutlineMinusCircle} from "react-icons/ai"
 import { useMatches } from '@/hooks/useMatches'
 import { useTeams } from '@/hooks/useTeams'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 function Header() {
   const {changeModal,modal,favTeam,setAnimarCerrar} = useContext(FavTeamContext);
   const {cargando} =  useTeams();
@@ -36,13 +34,13 @@ function Header() {
           <div className='text-white md:w-32 relative md:h-32 bg-hexablack shadow-2xl border-blue-400 border-4 rounded-full px-5 py-2 mb-2 cursor-pointer flex items-center justify-center flex-col gap-2 ' >
             <p className='text-center hidden md:block font-extrabold'>{favTeam?.name}</p>
             <img src={favTeam?.image} alt={`Image team ${favTeam?.name}`} width={50} height={50}/>
-            <div className='absolute -top-2  -right-2'><FavoriteIcon fontSize="large" color="error"/></div>
+            <div className='absolute -top-2  -right-2'>{"fav team"}</div>
           </div>
         </Link>
         :    <Link href="/search">
         <div className='text-white w-32 relative h-32  px-5 py-2 border-blue-400 border-4  mb-2 cursor-pointer flex justify-center items-center flex-col gap-2 rounded-full' >
           <p className='text-center font-extrabold'>SELECT YOUR TEAM!</p>
-          <div className='absolute top-0 right-0'><FavoriteBorderIcon  color="error" fontSize='large' /></div>
+          <div className='absolute top-0 right-0'>{"NO FAV TEAM"}</div>
         </div>   
         </Link>   
         }

@@ -6,8 +6,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Error from '@/components/Error';
 import FilterLeague from '@/components/SearchComponents/FilterLeague';
 import { useRouter } from 'next/navigation';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 import Formulario from '@/components/SearchComponents/Formulario';
 function SearchPage() {
     const {setFavTeam,changeModal,animarCerrar,setAnimarCerrar,leagues,teams,favTeam} = useContext(FavTeamContext)
@@ -114,7 +113,7 @@ function SearchPage() {
                             {/** <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
                                 <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
                             </div>
-                            <button onClick={()=>{handleFavTeam(element); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon color='secondary'/> :<FavoriteBorderIcon/>} </button>   
+                            <button onClick={()=>{handleFavTeam(element); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? "EQUIPO FAVORITO" : "N OFAVORITO"} </button>   
                         </div>
                     )
                         }
@@ -135,7 +134,7 @@ function SearchPage() {
                         {/**   <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
                      <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
                     </div>
-                    <button onClick={()=>{handleFavTeam(element);  router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
+                    <button onClick={()=>{handleFavTeam(element);  router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? "favorito" :"no faviroto"} </button>   
                     </div>
                 ))}
 
