@@ -1,14 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
 import FavTeamContext from '@/context/FavTeam';
 import { useTeams } from '@/hooks/useTeams';
 import React, { useContext, useEffect, useState } from 'react'
-import Error from '@/components/Error';
-import FilterLeague from '@/components/FilterLeague';
+import Error from './Error';
+import FilterLeague from './SearchComponents/FilterLeague';
 import { useRouter } from 'next/navigation';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-function SearchPage() {
+function Modal() {
     const {setFavTeam,changeModal,animarCerrar,setAnimarCerrar,leagues,teams,favTeam} = useContext(FavTeamContext)
     const [team,setTeam] = useState("");
     const [results,setResults] = useState([])
@@ -88,10 +87,10 @@ function SearchPage() {
         setError("")
     },[selectLeague])
   return (  
-   <section className={`mt-10  flex  container mx-auto flex-col items-center gap-10 `}>
+   <div className={`mt-10  flex  container mx-auto flex-col items-center gap-10 ${animarCerrar? "animates" : "cerrar opacity-0"}`}>
    <h2 className='text-2xl font-extrabold font-sans'>Choose your favorite team and follow all their information!</h2>
   
-    <form onSubmit={handleSubmit} className='w-full mx-auto container flex flex-col items-center'>
+    <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
     {error && <Error>{error}</Error>}
        <div className='flex gap-2 justify-center w-full'>
         <div className='ml-10 w-4/5 flex justify-center gap-5'>
@@ -123,7 +122,7 @@ function SearchPage() {
            {/** <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
             <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
             </div>
-            <button onClick={()=>{handleFavTeam(element); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon color='red'/> :<FavoriteBorderIcon/>} </button>   
+            <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
             </div>
         )
             }
@@ -145,7 +144,7 @@ function SearchPage() {
             {/**   <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
            <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
            </div>
-           <button onClick={()=>{handleFavTeam(element);  router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
+           <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
            </div>
        ))}
 
@@ -158,8 +157,8 @@ function SearchPage() {
         emptyTeams && <p className='text-white'>No hay resultados</p>
         }
     </div>
-   </section>
+   </div>
   )
 }
 
-export default SearchPage
+export default Modal

@@ -1,13 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import FavTeamContext from '@/context/FavTeam';
 import { useTeams } from '@/hooks/useTeams';
 import React, { useContext, useEffect, useState } from 'react'
-import Error from './Error';
-import FilterLeague from './FilterLeague';
+import Error from '@/components/Error';
+import FilterLeague from '@/components/SearchComponents/FilterLeague';
 import { useRouter } from 'next/navigation';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-function Modal() {
+import Formulario from '@/components/SearchComponents/Formulario';
+function SearchPage() {
     const {setFavTeam,changeModal,animarCerrar,setAnimarCerrar,leagues,teams,favTeam} = useContext(FavTeamContext)
     const [team,setTeam] = useState("");
     const [results,setResults] = useState([])
@@ -78,31 +80,20 @@ function Modal() {
    
     //Busqueda seleccionando en el select
     useEffect(()=>{
+        setTeam("");
         if(!selectLeague) return;
         const teamsS = teams.filter(element=>element.homeLeague.name === selectLeague);
         setFilterLeague(leagues.find(element=>element.name === selectLeague));
-       // console.log(teamsS);
+        console.log(teamsS);
         setResults(teamsS);
         setTeam("");
         setError("")
     },[selectLeague])
   return (  
-   <div className={`mt-10  flex  container mx-auto flex-col items-center gap-10 ${animarCerrar? "animates" : "cerrar opacity-0"}`}>
-   <h2 className='text-2xl font-extrabold font-sans'>Choose your favorite team and follow all their information!</h2>
+   <section className={`mt-10  flex  container mx-auto flex-col items-center gap-10 `}>
+   <h2 className='text-2xl font-extrabold font-sans text-center'>Choose your favorite team and follow all their information!</h2>
   
-    <form onSubmit={handleSubmit} className='w-full flex flex-col items-center'>
-    {error && <Error>{error}</Error>}
-       <div className='flex gap-2 justify-center w-full'>
-        <div className='ml-10 w-4/5 flex justify-center gap-5'>
-            <input onChange={e=>setTeam(e.target.value)} value={team} type='text' className='py-2 border-2 px-5 border-blue-100' placeholder='Write your favourite team'></input>
-           
-            {/**  <input type="submit" className='text-white bg-blue-200 px-5 py-2 uppercase font-bold cursor-pointer hover:bg-blue-300 transition-all duration-500'  value="SEARCH TEAM"/>*/}
-        </div>
-
-        <FilterLeague leagues={leagues} setSelectLeague={setSelectLeague} selectLeague={selectLeague}/>
-
-       </div>
-    </form>
+        <Formulario setSelectLeague={setSelectLeague} selectLeague={selectLeague} setTeam={setTeam} error={error}/>
         {filterLeague.id && 
         <div className='flex font-bold text-3xl bg-slate-600 opacity-100 py-2 px-5 items-center shadow-xl border-2 border-cyan-200 text-white'>
             <p className='text-white'>{filterLeague.name}</p>
@@ -112,53 +103,54 @@ function Modal() {
         <div className="w-full flex flex-col gap-10">
         {
         results.length>0  ?
-        selectLeague?
-        <div className={`flex flex-col  gap-5  justify-center`}>
-              { results.map(element=>
-            <div key={element.id} className='flex items-center bg-cyan-900 justify-center'>
-            <div className='w-full h-max flex items-center'>
-            <img src={element.image} alt={`Imagen equipo ${element.name}`} width={50} height={50} className='filter sepia-50'></img>
-            <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
-           {/** <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
-            <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
-            </div>
-            <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
-            </div>
-        )
-            }
-            
-       </div>
-        :
-       <>
-        {
-        results.map(element=>
-          (
-          <div className="flex flex-col  gap-5  justify-center" key={element.region}>
-          <h2 className='text-3xl text-center font-bold px-5 p-2'>{element.region}</h2>
-          {
-          element.elementos.map(element=>(
-           <div key={element.id} className='flex items-center bg-cyan-900 justify-center'>
-           <div className='w-full h-max flex items-center'>
-           <img src={element.image} alt={`Imagen equipo ${element.name}`} width={50} height={50} className='filter sepia-50'></img>
-           <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
-            {/**   <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
-           <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
-           </div>
-           <button onClick={()=>{handleFavTeam(element); setAnimarCerrar(false) ;changeModal(true); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
-           </div>
-       ))}
+        (
+                    selectLeague && filterLeague?
+                    <div className={`flex flex-col  gap-5  justify-center`}>
+                        { results.map(element=>
+                        <div key={element.id} className='flex items-center bg-cyan-900 justify-center'>
+                            <div className='w-full h-max flex items-center'>
+                                <img src={element.image} alt={`Imagen equipo ${element.name}`} width={50} height={50} className='filter sepia-50'></img>
+                                <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
+                            {/** <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
+                                <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
+                            </div>
+                            <button onClick={()=>{handleFavTeam(element); router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon color='secondary'/> :<FavoriteBorderIcon/>} </button>   
+                        </div>
+                    )
+                        }
+                    </div>
+                    :
+                     <>
+                    {
+                    results.map(element=>
+                    (
+                    <div className="flex flex-col  gap-5  justify-center" key={element.region}>
+                    <h2 className='text-3xl text-center font-bold px-5 p-2'>{element.region}</h2>
+                    {
+                    element.elementos.map(element=>(
+                    <div key={element.id} className='flex items-center bg-cyan-900 justify-center'>
+                    <div className='w-full h-max flex items-center'>
+                    <img src={element.image} alt={`Imagen equipo ${element.name}`} width={50} height={50} className='filter sepia-50'></img>
+                    <h4 className='text-black  opacity-100 text-2xl font-bold'> {element.name} </h4>
+                        {/**   <p className='text-white '>League: <span className='font-bold'>{element?.homeLeague?.name}</span></p>
+                     <p className='text-white'>Region: <span className='font-bold'>{element?.homeLeague?.region}</span></p> */}
+                    </div>
+                    <button onClick={()=>{handleFavTeam(element);  router.push(`/teams/${element.name}`)}} value={element.name} key={element.id} className='bg-blue-900 p-5 flex justify-end '> {element.name === favTeam.name? <FavoriteIcon/> :<FavoriteBorderIcon/>} </button>   
+                    </div>
+                ))}
 
-       </div>
-       )
-        )
-        }
-        </>
+                </div>
+                )
+                    )
+                    }
+                    </>
+                    )
         :
         emptyTeams && <p className='text-white'>No hay resultados</p>
         }
     </div>
-   </div>
+   </section>
   )
 }
 
-export default Modal
+export default SearchPage

@@ -2,6 +2,7 @@
 import Header from '@/components/Header'
 import './globals.css'
 import './normalize.css'
+import "./swipper.css"
 import { Inter } from 'next/font/google'
 import { FavTeamProvider } from '@/context/FavTeam'
 
