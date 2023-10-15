@@ -8,7 +8,7 @@ export function useRecent(){
     
     useEffect(()=>{
         const getMatches=async()=>{
-            if(favTeam.name){
+            if(favTeam?.name){
         try{
        
           const url ="https://esports-api.lolesports.com/persisted/gw/getLeagues?hl=en-US";
