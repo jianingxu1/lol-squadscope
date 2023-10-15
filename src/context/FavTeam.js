@@ -12,12 +12,9 @@ const FavTeamProvider = ({ children }) => {
   const {teams} = useTeams();
   const getLocalStorage =()=>{
     const team = JSON.parse(localStorage.getItem("favTeam"));
-    if(team.id)
-    {
+   
       setFavTeam(team);
-    }else{
-      console.log("Not favourite team")
-    }
+   
   }
   useEffect(()=>{
     getLocalStorage();
