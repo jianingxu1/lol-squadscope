@@ -10,12 +10,13 @@ function ListOfMatches() {
   const [position,setPosition] = useState(0);
   //Games que aun no se han completado de TODAS las ligas. TODO -> Filtrar por LIGA 
   const matchs = filterMatchStatus(games);
+  console.log(games)
   return (
     <section className={`flex overflow-hidden border-b border-grey-300 relative `}>
       <div className="w-full ">
         <div className={`flex text-center transition-transform  duration-500`} 
         style={{transform: `translateX(${-position}px)`}}>
-        {cargando? <CargandoMatches type="Matches">Loading Games...</CargandoMatches> : matchs && matchs.map(element=> <Match match={element} key={element.match?.id}/>)}
+        {cargando? <CargandoMatches type="Matches">Loading Games...</CargandoMatches> : matchs && matchs.map(element=> <Match match={element} key={Math.random()}/>)}
         </div>
       </div>
       {
