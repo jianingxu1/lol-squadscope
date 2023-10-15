@@ -7,10 +7,11 @@ import NextGames from '@/components/NextGames';
 
 function App() {
   return (
-    <div className='relative h-screen'>
+    <div className='relative  bg-slate-950'>
      
         <ListOfMatches/>
         <NextGames/>
+       
         <RecentMatches/>
   
     </div>

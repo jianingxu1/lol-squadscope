@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <FavTeamProvider>
-        <body className=' bg-gray-800 font-sans '>
+        <body className=' bg-slate-950  font-sans '>
             <Header/>
           {children}
         </body>
