@@ -40,7 +40,7 @@ function RecentMatches() {
             ? 
             <CargandoMatches >Loading recent matches of your favourite team </CargandoMatches>
             :
-            !favTeam.name
+            !favTeam?.name
             ? 
             <div className='mt-10 h-64 bg-hexablack border-8 border-gray-900 w-full'>
             <div className='text-center my-10 text-5xl'>
