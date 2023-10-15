@@ -2,8 +2,8 @@
 import ListOfMatches from '@/components/ListOfMatches'
 import FavTeamContext from '@/context/FavTeam';
 import React, { useContext } from 'react'
-import RecentMatches from './RecentMatches';
-import NextGames from './NextGames';
+import RecentMatches from '@/components/RecentMatches';
+import NextGames from '@/components/NextGames';
 
 function App() {
   return (
