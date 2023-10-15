@@ -11,7 +11,7 @@ const FavTeamProvider = ({ children }) => {
   const {leagues} = useLeagues();
   const {teams} = useTeams();
   const getLocalStorage =()=>{
-    const team = JSON.parse(localStorage.getItem("favTeam"));
+    const team = JSON.parse(localStorage.getItem("favTeam") || "");
    
       setFavTeam(team);
    
