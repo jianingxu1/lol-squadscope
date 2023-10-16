@@ -32,7 +32,7 @@ function RecentMatch({match}) {
            </div>
         </div>
       </div>
-        <div className=' flex items-center justify-center'>
+        <div className=' flex items-center'>
           <div className='w-2/6'><span className='' >{hora} </span></div>
 
           <div className='flex  gap-5 items-center justify-center'>
@@ -60,7 +60,8 @@ function RecentMatch({match}) {
     </div>
 
     
-    <div className='mt-10  bg-blue-700 border-8 border-gray-900  h-full mb-10 hidden md:block'>
+  <div className='text-white flex justify-center items-center'>
+  <div className='mt-10  bg-blue-700 border-8 border-gray-900 w-3/6 h-full mb-10 hidden md:block'>
         <div className='text-center mt-10 text-2xl'>{match?.blockName}<span > {match.league.name}</span></div>
         
           <div className='flex justify-center gap-20 p-10'>
@@ -83,11 +84,13 @@ function RecentMatch({match}) {
            </div>
         </div>
 
-        <div className='text-center pb-10 flex flex-col gap-2'>
+        <div className='text-center pb-10 flex flex-col items-center gap-2'>
            <p className='text-xl'>{fecha}</p>
            <p className='text-xl'>{horaSinCero(hora)}</p>
+           <button className='bg-blue-900 rounded-full text-3xl py-2 px-5 hover:bg-blue-800 transition-all duration-300' onClick={()=>router.push(`/match/${id}`)}>See match</button>
         </div>
     </div> 
+  </div>
  
    </>
   )
