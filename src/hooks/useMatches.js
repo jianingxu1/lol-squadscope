@@ -1,7 +1,7 @@
 const { useState, useEffect } = require("react");
 
 export const filterMatchStatus =(matches)=>matches.filter(element=>element.state !== "completed")
-
+export const filterMatchStatusCompleted =(matches)=>matches.filter(element=>element.state == "completed")
 //Calendario de todas las ligas que aun no han acabado
 export function useMatches(){
     const [matches,setMatches] = useState([]);

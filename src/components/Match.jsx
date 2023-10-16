@@ -27,7 +27,20 @@ function Match({match}) {
           </div>
           {
           match.state==="inProgress"?
-          <p className='font-bold text-red-600'>NOW</p>:
+            <div className='text-white'>
+              <div className='flex items-center'>
+              <img src= {match?.match?.teams[0].image} alt={`Image team ${match?.match?.teams[0].name}`} width={40} height={40}></img>
+             
+                <p>
+              {match?.match?.teams[0].name}
+              </p>
+              </div>
+            <div className='flex items-center'>
+            <img src= {match?.match?.teams[1].image} alt={`Image team ${match?.match?.teams[1].name}`} width={40} height={40}></img>
+            <p>{match?.match?.teams[1].name}</p>
+            </div>
+            </div>
+          :
           <>
           <div className=' text-white font-bold'>
             <div className=' flex items-center gap-2 w-full '>
@@ -48,7 +61,7 @@ function Match({match}) {
           </div>
           </>
           }
-        <div className='text-white font-bold'>
+        <div className='text-white font-bold mt-5'>
           <p>{match?.league.name}</p>
         </div>  
       </div>
