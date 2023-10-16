@@ -11,9 +11,9 @@ function FilaRecentMatch({match}) {
   return (
     <div className=' bg-blue-700 border-slate-950  border-2  '>
     <div className='border-b-2 border-b-slate-950 py-1 bg-blue-500'>
-      <div className=' flex justify-between items-center '>
+      <div className=' flex justify-between items-center overflow-hidden'>
       <p className='text-left w-1/4 lg:text-3xl'>{fecha}</p>
-      <p className='lg:text-3xl font-bold'>  {match.league.name} - <span>{blockName}</span></p>
+      <p className='lg:text-3xl text-sm font-bold '>  {match.league.name} - <span>{blockName}</span></p>
       <div>
           <button className='bg-blue-700  lg:text-2xl hover:bg-blue-800 transition-all duration-300 px-2 py-1' onClick={()=>router.push(`/match/${id}`)}>See match</button>
          </div>

@@ -76,9 +76,9 @@ import React, { useEffect, useState } from 'react'
         <h2 className='text-white  text-center text-4xl '> {game?.event?.league?.name}</h2>
         <img src={game?.event?.league?.image} alt={`Image team `} width={100} height={100}></img>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center gap-5'>
            <div className='flex items-center justify-center'> 
-            <h3>{game?.event?.match?.teams[0]?.name}</h3>
+            <h3 className='text-2xl'>{game?.event?.match?.teams[0]?.code}</h3>
             <img src={game?.event?.match?.teams[0].image} alt={`Image team `} width={50} height={50}></img>
            </div>
             <div className='flex items-center bg-slate-500 rounded-lg'>
@@ -87,16 +87,17 @@ import React, { useEffect, useState } from 'react'
             </div>
             <div className='flex items-center justify-center'> 
             <img src={game?.event?.match?.teams[1].image} alt={`Image team ${game?.event?.match?.teams[1].name}`} width={50} height={50}></img>
-            <h3>{game?.event?.match.teams[1].name}</h3>
+            <h3 className='text-2xl'>{game?.event?.match.teams[1].code}</h3>
             </div>
         </div>
 
         <div>
             <nav>
-               <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl' > 
+               <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl gap-5' > 
                 {game && game?.event?.match?.games.map(element=>
                 {
-                return  element.state ==="completed" && <li key={element.id}> <button onClick={()=>handleMatch(element.id)} > GAME {element.number}</button> </li> }
+                return  element.state ==="completed" && <li key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'> <button onClick={()=>handleMatch(element.id)} > GAME {element.number}</button> </li> 
+                }
                 )
                 }</ul>
             </nav>

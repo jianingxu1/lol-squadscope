@@ -29,14 +29,14 @@ function Match({match}) {
           match.state==="inProgress"?
             <div className='text-white'>
               <div className='flex items-center'>
-              <img src= {match?.match?.teams[0].code} alt={`Image team ${match?.match?.teams[0].code}`} width={40} height={40}></img>
+              <img src= {match?.match?.teams[0].code}  className=" object-cover" alt={`Image team ${match?.match?.teams[0].code}`}  width={40} height={40}></img>
              
                 <p>
               {match?.match?.teams[0].code}
               </p>
               </div>
             <div className='flex items-center'>
-            <img src= {match?.match?.teams[1].image} alt={`Image team ${match?.match?.teams[1].code}`} width={40} height={40}></img>
+            <img src= {match?.match?.teams[1].image}  className=" object-cover" alt={`Image team ${match?.match?.teams[1].code}`}   width={40} height={40}></img>
             <p>{match?.match?.teams[1].code}</p>
             </div>
             </div>
@@ -44,13 +44,13 @@ function Match({match}) {
           <>
           <div className=' text-white font-bold'>
             <div className=' flex items-center gap-2 w-full '>
-              <img src={teamOne?.image} className=" object-cover" alt={`Image team ${teamOne}`} width={40} height={40}/>
+              <img src={teamOne?.image} className=" object-cover" alt={`Image team ${teamOne}`}  width={40} height={40}/>
               <div>    
                 <p>{teamOne?.code} </p> 
               </div>
             </div>
             <div className='flex items-center gap-2 w-full'>
-              <img src={teamTwo?.image} alt={`Image team ${teamTwo}`} width={40} height={40}/>
+              <img src={teamTwo?.image}  className=" object-cover" alt={`Image team ${teamTwo}`} width={40}   height={40}/>
               <div>
                 <p>{teamTwo?.code}</p>
               </div>

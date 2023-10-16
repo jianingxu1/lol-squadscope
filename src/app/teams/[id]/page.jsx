@@ -51,9 +51,9 @@ function TeamPage({params}) {
         </div>
         }
        <main className='text-white'>
-        <h2 className='text-white text-3xl text-center'>{team?.name}</h2>
-        <nav>
-          <ul className='flex flex-col md:flex-row md:gap-5 md:mb-10'>
+        <h2 className='text-white text-3xl text-center mb-10'>{team?.name}</h2>
+        <nav className='mb-5'>
+          <ul className='flex flex-col md:flex-row md:gap-5 text-center md:mb-10'>
             <li><input type="button"  className={`${show ==="Show last matches" ? "text-green-500 font-bold" :"text-white"} hover:bg-blue-900 uppercase px-2 py-2 cursor-pointer font-bold md:text-2xl`} onClick={e=>handleMenu(e)} value="Show last matches"></input></li>
             <li> <input type="button" className={`${show ==="Show players" ? "text-green-500 font-bold" :"text-white"} hover:bg-blue-900 uppercase px-2 py-2 cursor-pointer font-bold md:text-2xl`} onClick={e=>handleMenu(e)} value="Show players"></input></li>
             <li> <input type="button"  className={`${show ==="Show future matches" ? "text-green-500 font-bold" :"text-white"} hover:bg-blue-900 uppercase px-2 py-2 cursor-pointer font-bold md:text-2xl`} onClick={e=>handleMenu(e)} value="Show future matches"></input></li>
