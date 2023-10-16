@@ -5,7 +5,7 @@ import "../app/swipper.css"
 // Import Swiper React components
 import NextMatch from './NextMatch';
 import CargandoMatches from './Loading';
-const useNextGames=(favTeam)=>{
+export const useNextGames=(favTeam)=>{
   const [cargando,setCargando] = useState(true);
 
   const [partidos,setPartidos] = useState([])

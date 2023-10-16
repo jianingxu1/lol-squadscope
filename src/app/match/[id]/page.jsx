@@ -72,8 +72,11 @@ import React, { useEffect, useState } from 'react'
         handleMatch(game?.event.match.games[0].id)
      },[game?.event?.match?.games[0].id])
   return (
-    <section className='bg-blue-700'>
-        <h2 className='text-white  text-center text-4xl'> {game?.event?.league?.name}</h2>
+    <section className='bg-blue-700 h-screen container mx-auto'>
+        <div className='flex justify-center items-center mb-10 pt-5'>
+        <h2 className='text-white  text-center text-4xl '> {game?.event?.league?.name}</h2>
+        <img src={game?.event?.league?.image} alt={`Image team `} width={100} height={100}></img>
+        </div>
         <div className='flex justify-center'>
            <div className='flex items-center justify-center'> 
             <h3>{game?.event?.match?.teams[0]?.name}</h3>
@@ -91,28 +94,88 @@ import React, { useEffect, useState } from 'react'
 
         <div>
             <nav>
-               <ul className='flex gap-5 text-white'> 
+               <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl' > 
                 {game?.event?.match?.games.map(element=>
                 {
-                return  element.state ==="completed" && <li key={element.id}> <button onClick={()=>handleMatch(element.id)} > GAME: {element.number}</button> </li> }
+                return  element.state ==="completed" && <li key={element.id}> <button onClick={()=>handleMatch(element.id)} > GAME {element.number}</button> </li> }
                 )
                 }</ul>
             </nav>
 
 
-            <div className='mt-10'>
-               <p className='text-white'> {match?.esportsGameId}</p>
-                <div className='flex bg-cyan-900 justify-evenly'>
-                <div>
+            <div className='mt-10 font-bold '>
+                {/** <p className='text-white'> {match?.esportsGameId}</p> */}
+                <div className='flex  flex-col md:flex-row md:justify-evenly'>
+                
+                <div className=' mb-10 flex md:gap-5 bg-blue-800  justify-between md:justify-center rounded-2xl px-5 py-5'>
+                    <div className=''>
+                    <div><p className='text-blue-100 mb-5'> Who played </p></div>
                 {match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
-                return <div className='text-white' key={element.championId}>{element.championId}{element.summonerName}</div>
-                })}
+                return <div className='text-white flex justify-between items-center' key={element.summonerName}>
+                    <p clas>{element.summonerName}</p> 
+                    </div>
+                    
+                })}</div>
+                <p>-</p>
+               <div>
+               <div><p className='text-blue-100 mb-5 text-center'>Champions played </p></div>
+                {match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
+                return <div className='text-white flex md:justify-between items-center' key={element.championId}>
+                 
+                    <div className='flex flex-start text-right'>
+                    <p className=''>{element.championId}</p>
+                    </div>
+                    </div> })}
+               </div>
                 </div>
-                <div>
+
+
+                    {}
+                    <div className=' mb-10 flex md:gap-5 bg-red-700 justify-between rounded-2xl px-5 py-5 md:hidden '>
+                    <div className=''>
+                    <div><p className='text-blue-100 mb-5'> Who played </p></div>
                 {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
-                return <div className='text-white' key={element.championId}> {element.summonerName}{element.championId}</div>
-                })}
+                return <div className='text-white flex justify-between items-center' key={element.summonerName}>
+                    <p clas>{element.summonerName}</p> 
+                    </div>
+                    
+                })}</div>
+                <p>-</p>
+               <div>
+               <div><p className='text-blue-100 mb-5 text-center'>Champions played </p></div>
+                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                return <div className='text-white flex md:justify-between items-center' key={element.championId}>
+                 
+                    <div className='flex flex-start text-right'>
+                    <p className=''>{element.championId}</p>
+                    </div>
+                    </div> })}
+               </div>
                 </div>
+
+                
+                <div className=' mb-10  md:gap-5 bg-red-800 rounded-2xl px-5 py-5 hidden md:flex'>
+                    <div className=''>
+                    <div><p className='text-blue-100 mb-5'>Champions played </p></div>
+                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                return <div className='text-white flex justify-between items-center' key={element.championId}>
+                    <p clas>{element.championId}</p> 
+                    </div>
+                    
+                })}</div>
+                <p>-</p>
+               <div>
+               <div><p className='text-blue-100 mb-5 text-center'>Who played </p></div>
+                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                return <div className='text-white flex justify-between items-center' key={element.summonerName}>
+                 
+                    <div className='flex flex-start text-right'>
+                    <p className=''>{element.summonerName}</p>
+                    </div>
+                    </div> })}
+               </div>
+                </div>
+
                 </div>
             </div>
         </div>

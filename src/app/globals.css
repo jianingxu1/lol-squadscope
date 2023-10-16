@@ -112,3 +112,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.imagen-responsive{
+  width:50%;
+  max-width: 100%;
+height: auto;  
+}
+
+@media (min-width:768px) {
+    .imagen-responsive{
+      width: 55%;
+    }
+}

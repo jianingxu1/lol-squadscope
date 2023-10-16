@@ -89,7 +89,7 @@ function SearchPage() {
         setError("")
     },[selectLeague])
   return (  
-   <section className={`mt-10  flex  container mx-auto flex-col items-center gap-10 `}>
+   <section className={`mt-10  flex  container mx-auto flex-col items-center gap-10 h-screen`}>
    <h2 className='text-2xl font-extrabold font-sans text-center'>Choose your favorite team and follow all their information!</h2>
   
         <Formulario setSelectLeague={setSelectLeague} selectLeague={selectLeague} setTeam={setTeam} error={error}/>

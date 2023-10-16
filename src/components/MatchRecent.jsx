@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import FilaRecentMatch from './FilaRecentMatch';
 function RecentMatches() {
   const {favTeam,cargando,favTeamGames} = useRecent();
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,7 +56,7 @@ function RecentMatches() {
              <div className='md:hidden flex flex-col gap-5'>
               {/**<button className={`text-white ${disablePrev ?"bg-blue-500 hover:bg-blue-600" :"bg-red-500"} transition-all duration-500 h-max px-10 text-black py-5 font-bold uppercase`} onClick={showPrevElement}> Previous Game</button> */}
               {favTeamGames.map(element=>
-                <RecentMatch match={element} key={Math.random()}/>)}
+                <FilaRecentMatch match={element} key={Math.random()}/>)}
               {/**  <button disabled={disableNext} className={`text-white ${disableNext?"bg-red-500":"bg-blue-500 hover:bg-blue-600"} transition-all duration-500  px-10 py-5 font-bold uppercase`} onClick={()=>showNextElement(favTeamGames.length)} > Next Game</button> */}
               </div>
 
