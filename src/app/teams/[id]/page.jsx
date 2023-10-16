@@ -31,7 +31,7 @@ function TeamPage({params}) {
       const data = await res.json();
       console.log(data);
     }
-    console.log(team)
+   // console.log(team)
     const {partidos,cargando:loadingNext} = useNextGames(favTeam);
     const deleteFav=()=>{
       setFavTeam({});
