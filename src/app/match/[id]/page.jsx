@@ -53,8 +53,8 @@ import React, { useEffect, useState } from 'react'
             //APikey RGAPI-398c5a9c-3681-46cb-9c7d-82637dd9dea0
             getGame();   
      },[])
-     const handleMatch=(id)=>{
-        const getGame =async()=>{
+     const handleMatch=async(id)=>{
+     
             const url = `https://feed.lolesports.com/livestats/v1/window/${id}`
             const res = await fetch(url,{
               headers:{
@@ -64,8 +64,7 @@ import React, { useEffect, useState } from 'react'
             const data = await res.json();
             setMatch(data);
            // console.log(data); 
-        }
-        getGame();
+       
      }
      useEffect(()=>{
         handleMatch(game?.event?.match?.games[0].id)
@@ -96,7 +95,7 @@ import React, { useEffect, useState } from 'react'
                <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl gap-5' > 
                 {game && game?.event?.match?.games.map(element=>
                 {
-                return  element.state ==="completed" && <li key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'> <button onClick={()=>handleMatch(element.id)} > GAME {element.number}</button> </li> 
+                return  element.state ==="completed" && <li key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'> <button onClick={()=>handleMatch(element.id)} value={element.id}> GAME {element.number}</button> </li> 
                 }
                 )
                 }</ul>
@@ -112,7 +111,7 @@ import React, { useEffect, useState } from 'react'
                     <div><p className='text-blue-100 mb-5'> Who played </p></div>
                 {match && match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.summonerName}>
-                    <p clas>{element.summonerName}</p> 
+                    <p >{element.summonerName}</p> 
                     </div>
                     
                 })}</div>
@@ -136,7 +135,7 @@ import React, { useEffect, useState } from 'react'
                     <div><p className='text-blue-100 mb-5'> Who played </p></div>
                 {match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.summonerName}>
-                    <p clas>{element.summonerName}</p> 
+                    <p >{element.summonerName}</p> 
                     </div>
                     
                 })}</div>
@@ -159,7 +158,7 @@ import React, { useEffect, useState } from 'react'
                     <div><p className='text-blue-100 mb-5'>Champions played </p></div>
                 { match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.championId}>
-                    <p clas>{element.championId}</p> 
+                    <p >{element.championId}</p> 
                     </div>
                     
                 })}</div>
