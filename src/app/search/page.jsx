@@ -67,9 +67,9 @@ function SearchPage() {
         
             return acumulador;
         }, []);
-        console.log(elementosAgrupados)
+        //console.log(elementosAgrupados)
         setResults(elementosAgrupados)
-        console.log(teamsS);
+       // console.log(teamsS);
     },[team])
     const handleFavTeam =(element)=>{
         setFavTeam(element);
@@ -83,7 +83,7 @@ function SearchPage() {
         if(!selectLeague) return;
         const teamsS = teams.filter(element=>element.homeLeague.name === selectLeague);
         setFilterLeague(leagues.find(element=>element.name === selectLeague));
-        console.log(teamsS);
+       // console.log(teamsS);
         setResults(teamsS);
         setTeam("");
         setError("")

@@ -14,9 +14,10 @@ function Header() {
 
   return (
     <header className='container mx-auto pt-10 px-2 '>
+       <h1 className='font-beaufort md:text-5xl font-bold uppercase text-center text-3xl block md:hidden'>LOL SQUADSCOPE</h1>
       <nav className='flex justify-between items-center'>
       <Link href="/" > <Image src="/img/lol_logo.png" alt="Imagen logo League of legends" width={100} height={100}></Image> </Link>
-        <h1 className='font-beaufort md:text-5xl font-bold uppercase'>LOL SQUADSCOPE</h1>
+        <h1 className='font-beaufort md:text-5xl font-bold uppercase hidden md:block'>LOL SQUADSCOPE</h1>
         <div className='flex gap-5'>
         <button className='text-white text-4xl'>
         <Link href="/search">  <svg

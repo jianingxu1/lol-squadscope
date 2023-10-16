@@ -4,10 +4,9 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
  function MatchPage({params}) {
-    const [game,setGame] = useState()
+    const [game,setGame] = useState({})
     const [match,setMatch] = useState();
-    const [status,setStatus] = useState();
-    console.log(`${game?.event?.match?.games[0].id}`)
+    //console.log(`${game?.event?.match?.games[0].id}`)
     const router = useRouter();
     ///console.log(params)
    
@@ -49,7 +48,7 @@ import React, { useEffect, useState } from 'react'
                 setGame(data.data);
                 //const filterGames = data.data.event.match.games.filter(element=>element.state !== "unneeded")
                 //console.log(filterGames);
-                console.log(data.data)
+               // console.log(data.data)
             }
             //APikey RGAPI-398c5a9c-3681-46cb-9c7d-82637dd9dea0
             getGame();   
@@ -69,7 +68,7 @@ import React, { useEffect, useState } from 'react'
         getGame();
      }
      useEffect(()=>{
-        handleMatch(game?.event.match.games[0].id)
+        handleMatch(game?.event?.match?.games[0].id)
      },[game?.event?.match?.games[0].id])
   return (
     <section className='bg-blue-700 h-screen container mx-auto'>
@@ -95,7 +94,7 @@ import React, { useEffect, useState } from 'react'
         <div>
             <nav>
                <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl' > 
-                {game?.event?.match?.games.map(element=>
+                {game && game?.event?.match?.games.map(element=>
                 {
                 return  element.state ==="completed" && <li key={element.id}> <button onClick={()=>handleMatch(element.id)} > GAME {element.number}</button> </li> }
                 )
@@ -110,7 +109,7 @@ import React, { useEffect, useState } from 'react'
                 <div className=' mb-10 flex md:gap-5 bg-blue-800  justify-between md:justify-center rounded-2xl px-5 py-5'>
                     <div className=''>
                     <div><p className='text-blue-100 mb-5'> Who played </p></div>
-                {match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
+                {match && match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.summonerName}>
                     <p clas>{element.summonerName}</p> 
                     </div>
@@ -119,7 +118,7 @@ import React, { useEffect, useState } from 'react'
                 <p>-</p>
                <div>
                <div><p className='text-blue-100 mb-5 text-center'>Champions played </p></div>
-                {match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
+                {match && match?.gameMetadata?.blueTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex md:justify-between items-center' key={element.championId}>
                  
                     <div className='flex flex-start text-right'>
@@ -134,7 +133,7 @@ import React, { useEffect, useState } from 'react'
                     <div className=' mb-10 flex md:gap-5 bg-red-700 justify-between rounded-2xl px-5 py-5 md:hidden '>
                     <div className=''>
                     <div><p className='text-blue-100 mb-5'> Who played </p></div>
-                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                {match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.summonerName}>
                     <p clas>{element.summonerName}</p> 
                     </div>
@@ -143,7 +142,7 @@ import React, { useEffect, useState } from 'react'
                 <p>-</p>
                <div>
                <div><p className='text-blue-100 mb-5 text-center'>Champions played </p></div>
-                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                {match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex md:justify-between items-center' key={element.championId}>
                  
                     <div className='flex flex-start text-right'>
@@ -157,7 +156,7 @@ import React, { useEffect, useState } from 'react'
                 <div className=' mb-10  md:gap-5 bg-red-800 rounded-2xl px-5 py-5 hidden md:flex'>
                     <div className=''>
                     <div><p className='text-blue-100 mb-5'>Champions played </p></div>
-                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                { match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.championId}>
                     <p clas>{element.championId}</p> 
                     </div>
@@ -166,7 +165,7 @@ import React, { useEffect, useState } from 'react'
                 <p>-</p>
                <div>
                <div><p className='text-blue-100 mb-5 text-center'>Who played </p></div>
-                {match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
+                {match && match?.gameMetadata?.redTeamMetadata?.participantMetadata?.map(element=>{
                 return <div className='text-white flex justify-between items-center' key={element.summonerName}>
                  
                     <div className='flex flex-start text-right'>

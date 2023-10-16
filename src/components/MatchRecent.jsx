@@ -18,7 +18,7 @@ function RecentMatches() {
   const {favTeam,cargando,favTeamGames} = useRecent();
     const [currentIndex, setCurrentIndex] = useState(0);
     const disableNext = currentIndex===favTeamGames.length - 1;
-  console.log(favTeamGames)
+  //console.log(favTeamGames)
     const disablePrev = currentIndex >=1;
       const showNextElement = (index) => {
         if(disableNext) return;

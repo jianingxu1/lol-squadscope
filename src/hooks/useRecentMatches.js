@@ -54,7 +54,7 @@ export function useRecent(){
           });
         
         const {data:data3} = await res3.json();
-        console.log(data3.schedule.events);
+        //console.log(data3.schedule.events);
 
         //Filtro por partidos acabados. de todos los calendarios
         const games = filterMatchStatusCompleted(data3.schedule.events);
