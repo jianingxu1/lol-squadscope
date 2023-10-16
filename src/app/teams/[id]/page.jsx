@@ -65,7 +65,9 @@ function TeamPage({params}) {
          {show === "Show players" &&
           <h2 className='text-center text-4xl'>In development</h2>
         }        
-        {show === "Show future matches" && <div className='flex justify-center'>{partidos.map(element=><NextMatch key={Math.random()} match={element}/>)}</div> }
+        {show === "Show future matches" && <div className='flex justify-center'>{
+          partidos.length?partidos.map(element=><NextMatch key={Math.random()} match={element}/>):<h2 className='text-4xl'> This team has not future matches</h2>
+        }</div> }
 
        </main>
     </div>
