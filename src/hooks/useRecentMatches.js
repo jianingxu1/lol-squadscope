@@ -54,6 +54,7 @@ export function useRecent(){
           });
         
         const {data:data3} = await res3.json();
+        console.log(data3.schedule.events);
 
         //Filtro por partidos acabados. de todos los calendarios
         const games = filterMatchStatusCompleted(data3.schedule.events);
@@ -61,8 +62,6 @@ export function useRecent(){
         //Filtro por partidos acabados de mi equipo favorito 
         const filterWorlds = games.filter(element=>element.match.teams[0].name === `${favTeam.name}`  || element.match.teams[1].name ===`${favTeam.name}`)
          
-        
-
         //Junto FilterGames de la liga del equipo y el general
         const WorldsAndHisTeam = [...filterGames,...filterWorlds];
 
@@ -73,9 +72,13 @@ export function useRecent(){
           return fechaB - fechaA;
         })
 
-        //Games acabados de mi equipo favorito
-        setFavTeamGames(filterDate) 
-        
+         //Como hemos juntado Array de Eventos global y los de la liga, habrá partidos que se repitan. Filtramos para quitar los que no se repitens
+        const filterSameGame =  filterDate.filter((item, index, self) => {
+          return self.findIndex((el) => el.match.id === item.match.id) === index;
+        });
+
+        //Games acabados de mi equipo favorito Juntando General + Liga
+        setFavTeamGames(filterSameGame) 
    
         }catch(error){
           console.log(error)

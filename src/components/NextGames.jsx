@@ -29,7 +29,7 @@ const useNextGames=(favTeam)=>{
       //Filtro por  games de mi equipo
        const games = filterByCompleted.filter(element=>element.match.teams[0].name === `${favTeam.name}`  || element.match.teams[1].name ===`${favTeam.name}`)
       setPartidos(games);
-    
+      console.log(games)
       }
     catch(error){
       console.log(error)

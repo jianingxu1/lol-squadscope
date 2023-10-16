@@ -10,8 +10,7 @@ function ListOfMatches() {
   const [position,setPosition] = useState(0);
   //Games que aun no se han completado de TODAS las ligas. TODO -> Filtrar por LIGA 
   const matchs = filterMatchStatus(games);
-  const filter = matchs.filter(element=>element.state ==="inProgress");
-  console.log(filter)
+  
   return (
     <section className={`flex overflow-hidden border-b border-grey-300 relative `}>
       <div className="w-full ">

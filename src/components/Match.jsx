@@ -11,8 +11,8 @@ function Match({match}) {
     const teamTwo = match?.match?.teams[1];
     const {cargando} = useMatches();
     const horaFormateada = hora.replace(/[^0-9]+$/, '');
-    
-  return (
+
+    return (
     <div className='flex h-52 w-60 shrink-0 flex-col items-center gap-2 justify-center border-l border-t border-grey-300 bg-blue-700 py-1'>
         <div>
           <div className=' text-lg font-bold text-grey-100'>
@@ -29,15 +29,15 @@ function Match({match}) {
           match.state==="inProgress"?
             <div className='text-white'>
               <div className='flex items-center'>
-              <img src= {match?.match?.teams[0].image} alt={`Image team ${match?.match?.teams[0].name}`} width={40} height={40}></img>
+              <img src= {match?.match?.teams[0].code} alt={`Image team ${match?.match?.teams[0].code}`} width={40} height={40}></img>
              
                 <p>
-              {match?.match?.teams[0].name}
+              {match?.match?.teams[0].code}
               </p>
               </div>
             <div className='flex items-center'>
-            <img src= {match?.match?.teams[1].image} alt={`Image team ${match?.match?.teams[1].name}`} width={40} height={40}></img>
-            <p>{match?.match?.teams[1].name}</p>
+            <img src= {match?.match?.teams[1].image} alt={`Image team ${match?.match?.teams[1].code}`} width={40} height={40}></img>
+            <p>{match?.match?.teams[1].code}</p>
             </div>
             </div>
           :
@@ -46,13 +46,13 @@ function Match({match}) {
             <div className=' flex items-center gap-2 w-full '>
               <img src={teamOne?.image} className=" object-cover" alt={`Image team ${teamOne}`} width={40} height={40}/>
               <div>    
-                <p>{teamOne?.name} </p> 
+                <p>{teamOne?.code} </p> 
               </div>
             </div>
             <div className='flex items-center gap-2 w-full'>
               <img src={teamTwo?.image} alt={`Image team ${teamTwo}`} width={40} height={40}/>
               <div>
-                <p>{teamTwo?.name}</p>
+                <p>{teamTwo?.code}</p>
               </div>
             </div>
           </div>

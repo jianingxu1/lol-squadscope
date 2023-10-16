@@ -14,11 +14,11 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 function RecentMatches() {
-  
   const {favTeam,cargando,favTeamGames} = useRecent();
     const [currentIndex, setCurrentIndex] = useState(0);
     const disableNext = currentIndex===favTeamGames.length - 1;
-    const disablePrev = currentIndex >=1;
+ // console.log(favTeamGames)
+  const disablePrev = currentIndex >=1;
       const showNextElement = (index) => {
         if(disableNext) return;
         setCurrentIndex(currentIndex + 1);
@@ -52,7 +52,7 @@ function RecentMatches() {
             ?
 
            <>
-             <div className='md:hidden'>
+             <div className='md:hidden flex flex-col gap-5'>
               {/**<button className={`text-white ${disablePrev ?"bg-blue-500 hover:bg-blue-600" :"bg-red-500"} transition-all duration-500 h-max px-10 text-black py-5 font-bold uppercase`} onClick={showPrevElement}> Previous Game</button> */}
               {favTeamGames.map(element=>
                 <RecentMatch match={element} key={Math.random()}/>)}
