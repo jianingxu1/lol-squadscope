@@ -1,4 +1,4 @@
-"use client"
+
 import { AppRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import Image from 'next/image'
 import Link from 'next/link'

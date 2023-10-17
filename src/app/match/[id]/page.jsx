@@ -74,6 +74,7 @@ import React, { useEffect, useState } from 'react'
  
 }
      useEffect(()=>{
+      if(!game?.event?.match?.games[0].id)return;
         handleMatch(game?.event?.match?.games[0].id)
      
      },[game?.event?.match?.games[0].id])
