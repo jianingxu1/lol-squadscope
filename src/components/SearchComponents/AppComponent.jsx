@@ -47,7 +47,7 @@ function SearchPage() {
         setSelectLeague("")
         setFilterLeague("");
         const teamsS = teams.filter(element=>element.name.toLowerCase().includes(`${team.toLowerCase()}`));
-        console.log(teamsS)
+        //console.log(teamsS)
         const elementosAgrupados = teamsS.reduce((acumulador, elemento) => {
             const region = elemento.homeLeague.name;
         

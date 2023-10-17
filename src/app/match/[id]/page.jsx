@@ -100,13 +100,13 @@ import React, { useEffect, useState } from 'react'
 
         <div>
             <nav>
-               <ul className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 cursor-pointer items-center justify-center gap-2 text-white text-sm  md:justify-center mt-10 md:text-2xl ' > 
+            <div className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 cursor-pointer items-center justify-center gap-2 text-white text-sm  md:justify-center mt-10 md:text-2xl ' > 
                 {game && game?.event?.match?.games.map(element=>
                 {
-                return  element.state ==="completed" && <li key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'> <button onClick={()=>handleMatch(element.id)} value={element.id}> GAME {element.number}</button> </li> 
+                return  element.state ==="completed" && <button key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'  onClick={()=>handleMatch(element.id)} value={element.id}> GAME {element.number}</button> 
                 }
                 )
-                }</ul>
+                }</div>
             </nav>
 
 

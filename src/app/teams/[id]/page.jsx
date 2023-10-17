@@ -49,7 +49,7 @@ function TeamPage({params}) {
     
   return (
     
-     <div className='container mx-auto bg-slate-950 ' >
+     <div className='container mx-auto bg-slate-950 h-screen' >
         <button className=' text-white' onClick={()=>setDelete(!deleteTeam)}>
           <AiFillDelete className='text-4xl'/>
         </button>
@@ -77,10 +77,10 @@ function TeamPage({params}) {
             <li> <input type="button"  className={`${show ==="Show future matches" ? "text-black font-bold" :"text-white"} bg-blue-800 rounded-xl hover:bg-blue-900 uppercase px-2 py-2 cursor-pointer font-bold md:text-2xl`} onClick={e=>handleMenu(e)} value="Show future matches"></input></li>
           </ul>
         </nav>
-        {show === "Show last matches" &&
-          favTeamGames.map(element=><FilaRecentMatch key={Math.random()} match={element}/>)
-        }
-         {show === "Show players" &&
+        {show === "Show last matches" ?
+         favTeamGames.length ?  favTeamGames.map(element=><FilaRecentMatch key={Math.random()} match={element}/>) : <h2 className='text-3xl text-center '>This team has not recent games </h2>
+        :
+          show === "Show players" &&
          <ul className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5 text-3xl">{team?.players?.map(element=><li key={element.id}>
             <div className="bg-cyan-900 rounded-xl px-5 py-2 text-center">
               <p>Name :  <span className="font-bold">{element.firstName} {element.lastName}</span> </p>
@@ -98,7 +98,7 @@ function TeamPage({params}) {
          </ul>
         }        
         {show === "Show future matches" && <div className='flex justify-center'>{
-          partidos.length?partidos.map(element=><NextMatch key={Math.random()} match={element}/>):<h2 className='text-4xl'> This team has not future matches</h2>
+          partidos.length?partidos.map(element=><NextMatch key={Math.random()} match={element}/>):<h2 className='text-4xl text-center'> This team has not future matches</h2>
         }</div> }
 
        </main>
