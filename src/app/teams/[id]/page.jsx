@@ -13,7 +13,7 @@ import NextMatch from '@/components/NextMatch';
 function TeamPage({params}) {
     const router = useRouter();
     const name = params.id.replace(/%20/g,' ');
-    const {teams} = useTeams();
+    const {teams,cargando:loadingTeams} = useTeams();
     const {setFavTeam} = useContext(FavTeamContext)
     const [team,setTeam] = useState({});
     const [deleteTeam,setDelete] = useState(false);
@@ -62,7 +62,11 @@ function TeamPage({params}) {
           </div>
         </div>
         }
-       <main className='text-white'>
+         {loadingTeams ? <h1 className='text-center text-4xl mt-10'> Loading Team page...</h1>
+         
+        :
+        <main className='text-white'>
+       
         <h2 className='text-white text-3xl text-center '>{team?.name} </h2>
        <div  className=' flex justify-center '> <img src={team?.alternativeImage} width={100} height={100} alt={`Imagen equipo ${team?.name}`}></img></div>
         <p className='text-3xl text-center mb-10'>{team?.homeLeague?.name} - <span className='text-3xl font-bold'>{team?.homeLeague?.region}</span></p>
@@ -98,6 +102,9 @@ function TeamPage({params}) {
         }</div> }
 
        </main>
+        
+        }
+      
     </div>
  
   )
