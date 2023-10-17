@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 import FavTeamContext from '@/context/FavTeam';
-import { useTeams } from '@/hooks/useTeams';
 import React, { useContext, useEffect, useState } from 'react'
-import Error from '@/components/Error';
-import FilterLeague from '@/components/SearchComponents/FilterLeague';
 import { useRouter } from 'next/navigation';
 
 import Formulario from '@/components/SearchComponents/Formulario';
@@ -18,29 +15,7 @@ function SearchPage() {
     const [emptyTeams,setEmptyTeams] = useState(false);
     const router = useRouter();
     
-    //Busqueda dandole al submit
-    const handleSubmit= e=>{
-        e.preventDefault();
-        if(team ===""){return; }
-            else if (team.length===1) {setError("Write more than one character");return; }
-                const teamsS = teams.filter(element=>element.name.toLowerCase().includes(`${team.toLowerCase()}`));
-                console.log(teamsS);
-                if(teamsS.length > 0  ){
-                    setResults(teamsS)
-                    setEmptyTeams(false);
-                    setError("");
-                    setTeam("");
-                    setSelectLeague("");
-                    setFilterLeague({})
-                }
-        else{
-            setEmptyTeams(true);
-            setError("")
-            setTeam("");
-            setFilterLeague({})
-            setResults([])
-        }
-    }
+  
     //Busqueda mientras escribe [No es muy eficiente, se recarga la pagina todo el rato]
     useEffect(()=>{
         if(team ===""){return; }

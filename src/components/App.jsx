@@ -1,4 +1,4 @@
-"use client"
+
 import ListOfMatches from '@/components/ListOfMatches'
 import FavTeamContext from '@/context/FavTeam';
 import React, { useContext } from 'react'

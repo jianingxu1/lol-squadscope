@@ -1,3 +1,4 @@
+"use client"
 import FavTeamContext from '@/context/FavTeam';
 import { filterMatchStatus } from '@/hooks/useMatches';
 import { useState, useEffect,useContext } from 'react';

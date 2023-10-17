@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
+"use client"
 
 import React, {  useState } from 'react'
 import RecentMatch from './RecentMatch';
 import CargandoMatches from './Loading';
 import { useRecent } from '@/hooks/useRecentMatches';
 import "../app/swipper.css"
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation} from 'swiper/modules';
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 

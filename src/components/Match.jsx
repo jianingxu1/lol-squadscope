@@ -9,7 +9,6 @@ function Match({match}) {
     const {fecha,hora}  = SepararFechaYHora(match.startTime);
     const teamOne = match?.match?.teams[0];
     const teamTwo = match?.match?.teams[1];
-    const {cargando} = useMatches();
     const horaFormateada = hora.replace(/[^0-9]+$/, '');
 
     return (
