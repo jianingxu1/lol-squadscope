@@ -12,17 +12,22 @@ import React, { useEffect, useState } from 'react'
    
     //110852981980205644
     //Para obtener cada game
-    /**const getGame =async()=>{
-                const url =` https://feed.lolesports.com/livestats/v1/window/110852981980205645`
-                const res = await fetch(url,{
-                  headers:{
-                    "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
-                  }
-                });
-                const data = await res.json();
-                setGames(data.data);
-                console.log(data); */
-
+    //Hacerlo luego
+   /**useEffect(()=>{
+    const getGame =async()=>{
+      const url =` https://feed.lolesports.com/livestats/v1/window/109919226378791857?startingTime=2019-07-13T16:33:100Z`
+      const res = await fetch(url,{
+        headers:{
+          "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
+        }
+      });
+      const data = await res.json();
+      //Importante
+     // console.log(data)
+      //console.log(data.frames[9]); 
+   }
+   getGame();
+  },[]) */
                 //Obtener todos los partidos de un torneo
                 /**useEffect(()=>{
             const getGame =async()=>{
@@ -55,19 +60,22 @@ import React, { useEffect, useState } from 'react'
      },[])
      const handleMatch=async(id)=>{
      
-            const url = `https://feed.lolesports.com/livestats/v1/window/${id}`
-            const res = await fetch(url,{
-              headers:{
-                "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
-              }
-            });
-            const data = await res.json();
-            setMatch(data);
-           // console.log(data); 
-       
-     }
+      const url = `https://feed.lolesports.com/livestats/v1/window/${id}`
+      const res = await fetch(url,{
+        headers:{
+          "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
+        }
+      });
+      const data = await res.json();
+      setMatch(data);
+      //Importante
+      //  console.log(data)
+     // console.log(data); 
+ 
+}
      useEffect(()=>{
         handleMatch(game?.event?.match?.games[0].id)
+     
      },[game?.event?.match?.games[0].id])
   return (
     <section className='bg-blue-700 h-screen container mx-auto'>
@@ -92,7 +100,7 @@ import React, { useEffect, useState } from 'react'
 
         <div>
             <nav>
-               <ul className='flex md:gap-5 text-white justify-center mt-10 md:text-2xl gap-5' > 
+               <ul className='grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 cursor-pointer items-center justify-center gap-2 text-white text-sm  md:justify-center mt-10 md:text-2xl ' > 
                 {game && game?.event?.match?.games.map(element=>
                 {
                 return  element.state ==="completed" && <li key={element.id} className='bg-blue-500  hover:bg-blue-400 transition-colors duration-300 px-5 py-2 rounded-full font-bold font-sans'> <button onClick={()=>handleMatch(element.id)} value={element.id}> GAME {element.number}</button> </li> 
