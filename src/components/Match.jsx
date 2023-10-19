@@ -28,7 +28,7 @@ function Match({match}) {
           match.state==="inProgress"?
             <div className='text-white'>
               <div className='flex items-center'>
-              <img src= {match?.match?.teams[0].code}  className=" object-cover" alt={`Image team ${match?.match?.teams[0].code}`}  width={40} height={40}></img>
+              <img src= {match?.match?.teams[0].image}  className=" object-cover" alt={`Image team ${match?.match?.teams[0].code}`}  width={40} height={40}></img>
              
                 <p>
               {match?.match?.teams[0].code}
