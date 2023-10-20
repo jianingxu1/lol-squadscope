@@ -13,6 +13,9 @@ export function useMatches(){
           const res = await fetch("https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",{
         headers:{
           "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
+        },
+        next:{
+          revalidate:360
         }
       });
       const {data} = await res.json();

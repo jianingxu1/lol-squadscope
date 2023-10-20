@@ -19,6 +19,9 @@ export const useNextGames=(favTeam)=>{
       const res2 = await fetch(url,{
         headers:{
           "x-api-key":"0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
+        },
+        next:{
+          revalidate:300
         }
       });
       //SE BUSCAN LOS EQUIPOS -> TODOS LOS EQUIPOS
