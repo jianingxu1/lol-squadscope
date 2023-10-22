@@ -33,15 +33,16 @@ function RecentMatches() {
   };
   const swiper = useSwiper();
   return (
-    <section className=' container mx-auto mt-10'>
-      <h2 className='text-center text-5xl text-white'>Recent Matches</h2>
+    <section className='container mx-auto'>
+      <h3 className='text-center text-gold-100 mb-4'>Recent Matches</h3>
       <div className='text-white '>
         {cargando ? (
-          <CargandoMatches>Loading recent matches of your favourite team </CargandoMatches>
+          <CargandoMatches>Loading recent matches...</CargandoMatches>
         ) : !favTeam?.name ? (
-          <div className='bg-hexablack mt-10 h-64 w-full border-8 border-gray-900'>
-            <div className='my-10 text-center text-5xl'>
-              <p>You dont have favourite team. Choose one </p>
+          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+            <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
+              <p>You don't have a favourite team.</p>
+              <p>Click the "Select your team" button to choose one!</p>
             </div>
           </div>
         ) : favTeamGames.length > 1 ? (
@@ -70,9 +71,9 @@ function RecentMatches() {
               </div> */}
           </>
         ) : (
-          <div className='bg-hexablack mt-10 h-64 w-full border-8 border-gray-900'>
-            <div className='my-10 text-center text-5xl'>
-              <p>Not recent games</p>
+          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+            <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
+              <p>There are no recent matches for your team!</p>
             </div>
           </div>
         )}

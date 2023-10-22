@@ -21,7 +21,7 @@ function RecentMatch({ match }) {
   return (
     <>
       <div className='flex items-center justify-center text-white '>
-        <div className='mb-10  mt-10 h-full w-3/6 border-8 border-gray-900 bg-blue-700 '>
+        <div className='h-full w-3/6 border-4 border-gray-900 bg-blue-700 '>
           <div className='mt-10 text-center text-2xl'>
             {match?.blockName}
             <span> {match.league.name}</span>

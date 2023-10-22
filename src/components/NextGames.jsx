@@ -15,7 +15,8 @@ export const useNextGames = (favTeam) => {
       if (favTeam.name) {
         try {
           //Fetch al calendario general. En el futuro -> Buscar el calendario de la liga del equipo? Ya que cuando empiecen las ligas habran muchos partidos y quizá no sale el del equipo favorito
-          const url = 'https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US';
+          const url =
+            'https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US';
           const res2 = await fetch(url, {
             headers: {
               'x-api-key': '0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z',
@@ -57,23 +58,24 @@ function NextGames() {
   const { favTeam } = useContext(FavTeamContext);
   const { partidos, cargando } = useNextGames(favTeam);
   return (
-    <section className=' container mx-auto mt-10'>
-      <h2 className='text-center text-white'>Upcoming Match</h2>
-      <div className='flex items-center justify-center text-white'>
+    <section className="container">
+      <h3 className="mb-4 text-center text-gold-100">Upcoming match</h3>
+      <div className="flex items-center justify-center text-white">
         {cargando ? (
-          <CargandoMatches>Loading upcoming match</CargandoMatches>
+          <CargandoMatches>Loading upcoming match...</CargandoMatches>
         ) : !favTeam?.name ? (
-          <div className='bg-hexablack mt-10 h-64 w-full border-8 border-gray-900'>
-            <div className='my-10 text-center text-5xl'>
-              <p>You dont have favourite team. Choose one</p>
+          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+            <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
+              <p>You don't have a favourite team.</p>
+              <p>Click the "Select your team" button to choose one!</p>
             </div>
           </div>
         ) : partidos?.length > 0 ? (
           <NextMatch key={partidos[0].id} match={partidos[0]} />
         ) : (
-          <div className='bg-hexablack mt-10 h-64 w-full border-8 border-gray-900'>
-            <div className='my-10 text-center text-5xl'>
-              <p>No upcoming match</p>
+          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+            <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
+              <p>There is no upcoming match for your team!</p>
             </div>
           </div>
         )}

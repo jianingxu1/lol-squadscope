@@ -6,10 +6,12 @@ import NextGames from '@/components/NextGames';
 
 function App() {
   return (
-    <div className='relative  bg-slate-950'>
+    <div className="relative  flex flex-col gap-10 bg-slate-950">
       <ListOfMatches />
-      <NextGames />
-      <RecentMatches />
+      <div className="flex flex-col items-center gap-10 px-12">
+        <NextGames />
+        <RecentMatches />
+      </div>
     </div>
   );
 }

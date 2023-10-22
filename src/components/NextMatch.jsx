@@ -16,7 +16,7 @@ function NextMatch({ match }) {
   const { id, flags, teams, strategy } = partido;
   const { fecha, hora } = SepararFechaYHora(startTime);
   return (
-    <div className='mb-10  mt-10 w-full border-8 border-gray-900 bg-blue-700  md:w-3/6 '>
+    <div className='w-full border-4 border-gray-900 bg-blue-700  md:w-3/6 '>
       <div className='mt-10 text-center text-2xl'>
         <span> {match?.league.name} </span>
       </div>
