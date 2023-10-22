@@ -32,6 +32,8 @@ module.exports = {
           300: '#3C3C41',
           400: '#1E2328',
           500: '#1E282D',
+          700: 'rgba(51,51,51,.25)',  // border color
+          900: '#111',  // bg color
         },
         hexblack: '#010A13',
       },
