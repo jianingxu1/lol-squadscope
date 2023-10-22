@@ -113,11 +113,12 @@
   }
 
   p {
-    @apply text-base text-grey-100;
+    @apply text-base;
     font-family: 'Spiegel';
     line-height: 1.5;
   }
 }
+
 .slideshow-container {
   position: relative;
   max-width: 300px;
@@ -194,15 +195,14 @@ button.next {
 .animates {
   animation: animate 1s;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --tw-bg-opacity: 1;
     background-color: rgb(1 10 19 / var(--tw-bg-opacity));
   }
 }
-.font-beaufort {
-  font-family: 'Beufort';
-}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))

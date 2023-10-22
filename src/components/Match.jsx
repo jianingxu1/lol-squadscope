@@ -10,27 +10,34 @@ function Match({ match }) {
   const teamOne = match?.match?.teams[0];
   const teamTwo = match?.match?.teams[1];
   const horaFormateada = hora.replace(/[^0-9]+$/, '');
-
   return (
-    <div className='flex h-52 w-60 shrink-0 flex-col items-center justify-center gap-2 border-l border-t border-grey-300 bg-blue-700 py-1'>
-      <div>
-        <div className=' text-lg font-bold text-grey-100'>
+    <div className="flex h-48 w-52 shrink-0 flex-col items-center justify-center gap-2 border-l border-t border-grey-500 bg-blue-700 py-1">
+      {match.state == 'inProgress' ? (
+        <span className="absolute left-0 top-0 h-full w-1.5 bg-red-800 content-none"></span>
+      ) : (
+        <span></span>
+      )}
+      <div className="flex flex-col gap-1">
+        <div className="font-spiegel uppercase tracking-wider text-grey-100">
           {match.state === 'inProgress' ? (
-            <p className='font-bold text-red-600 '>NOW </p>
+            <div className="flex items-center justify-center gap-1">
+              <span className="text-red-500">•</span>
+              <span className="text-white">LIVE</span>
+            </div>
           ) : isToday(match?.startTime) ? (
-            <p>Today</p>
+            <span>Today</span>
           ) : esManana(match.startTime) ? (
-            <p>TOMORROW</p>
+            <span>Tomorrow</span>
           ) : (
-            <p>{fecha}</p>
+            <span>{fecha}</span>
           )}
         </div>
         {match.state === 'inProgress' ? (
-          <div className='text-white'>
-            <div className='flex items-center'>
+          <div className="text-white">
+            <div className="flex items-center">
               <img
                 src={match?.match?.teams[0].image}
-                className=' object-cover'
+                className="h-10 w-10 object-cover"
                 alt={`Image team ${match?.match?.teams[0].code}`}
                 width={40}
                 height={40}
@@ -38,10 +45,10 @@ function Match({ match }) {
 
               <p>{match?.match?.teams[0].code}</p>
             </div>
-            <div className='flex items-center'>
+            <div className="flex items-center">
               <img
                 src={match?.match?.teams[1].image}
-                className=' object-cover'
+                className="h-10 w-10 object-cover"
                 alt={`Image team ${match?.match?.teams[1].code}`}
                 width={40}
                 height={40}
@@ -51,11 +58,11 @@ function Match({ match }) {
           </div>
         ) : (
           <>
-            <div className=' font-bold text-white'>
-              <div className=' flex w-full items-center gap-2 '>
+            <div className="font-bold text-white">
+              <div className="flex w-full items-center gap-2 ">
                 <img
                   src={teamOne?.image}
-                  className=' object-cover'
+                  className="h-10 w-10 object-cover"
                   alt={`Image team ${teamOne}`}
                   width={40}
                   height={40}
@@ -64,10 +71,10 @@ function Match({ match }) {
                   <p>{teamOne?.code} </p>
                 </div>
               </div>
-              <div className='flex w-full items-center gap-2'>
+              <div className="flex w-full items-center gap-2">
                 <img
                   src={teamTwo?.image}
-                  className=' object-cover'
+                  className=" object-cover"
                   alt={`Image team ${teamTwo}`}
                   width={40}
                   height={40}
@@ -77,13 +84,13 @@ function Match({ match }) {
                 </div>
               </div>
             </div>
-            <div className='text-white'>
+            <div className="text-white">
               <p>{horaFormateada}</p>
             </div>
           </>
         )}
-        <div className='mt-5 font-bold text-white'>
-          <p>{match?.league.name}</p>
+        <div className="text-md font-spiegel text-grey-100">
+          {match?.league.name}
         </div>
       </div>
     </div>
