@@ -79,7 +79,7 @@ function Header() {
           ) : (
             <Link href="/search">
               <div className="relative flex h-12 w-12 cursor-pointer flex-col items-center justify-center rounded-full border-2 border-grey-500 px-5 py-2 text-white sm:h-16 sm:w-16">
-                <p className="text-center font-spiegel text-xs leading-none md:text-sm md:leading-none">
+                <p className="text-center font-spiegel text-xs leading-none text-grey-100 md:text-sm md:leading-none">
                   Select your team!
                 </p>
               </div>
