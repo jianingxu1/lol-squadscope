@@ -5,7 +5,7 @@ import React from 'react'
 export  const generateMetadata= async({params})=>{
   
   return {
-    title:"LOL - " + params.id
+    title: params.id + " | LoL SquadScope"
   }
 }
 function TeamPage({params}) {

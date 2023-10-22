@@ -9,7 +9,7 @@ export async function generateMetadata({params}){
     }
   });
   const data = await res.json();
-  return {title:data.data.event.match.teams[0].code + " VS "+ data.data.event.match.teams[1].code}
+  return {title:data.data.event.match.teams[0].code + " vs "+ data.data.event.match.teams[1].code + " | LoL SquadScope"}
   }
 
 export default function MatchPage({params}) {
