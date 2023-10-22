@@ -3,18 +3,117 @@
 @tailwind utilities;
 
 :root {
- 
+
 }
-body {
- 
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Regular.ttf');
 }
-h1,h2,h3,h4,h5{
-    @apply uppercase tracking-wide text-gold-100;
-    font-family: 'Beaufort';
-    @apply text-gold-100;
-    font-weight: bold;
-    line-height: 1.1;
-    text-transform: uppercase;
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Italic.ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-BoldItalic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+ font-family: "Beaufort";
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Beaufort';
+  src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-MediumItalic.ttf');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('../fonts/Spiegel-TTF/Spiegel_TT_Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('../fonts/Spiegel-TTF/Spiegel_TT_Regular_Italic.ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('../fonts/Spiegel-TTF/Spiegel_TT_Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Spiegel';
+  src: url('../fonts/Spiegel-TTF/Spiegel_TT_Bold_Italic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@layer base {
+  h1,h2,h3,h4,h5{
+      @apply uppercase tracking-wide;
+      font-family: 'Beaufort';
+      font-weight: bold;
+      line-height: 1.1;
+      text-transform: uppercase;
+  }
+  h1 {
+    @apply text-6xl tracking-normal;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+    letter-spacing: 0.075em;
+  }
+
+  p {
+    @apply text-base text-grey-100;
+    font-family: 'Spiegel';
+    line-height: 1.5;
+  }
 }
 .slideshow-container {
   position: relative;
