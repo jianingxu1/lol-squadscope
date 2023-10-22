@@ -1,15 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-function CargandoMatches({children,type}) {
+function CargandoMatches({ children, type }) {
   return (
-    <div className={`flex h-52 ${type==="Matches" ? "w-full " :" h-96 w-full mt-10 text-4xl" }  text-center shrink-0 flex-col items-center gap-2 justify-center border-l border-t border-grey-300 bg-blue-700 py-1`}>
+    <div
+      className={`flex h-52 ${
+        type === 'Matches' ? 'w-full ' : ' mt-10 h-96 w-full text-4xl'
+      }  shrink-0 flex-col items-center justify-center gap-2 border-l border-t border-grey-300 bg-blue-700 py-1 text-center`}
+    >
       <div>
-        <div className=' text-white font-bold'>
+        <div className=' font-bold text-white'>
           <h2>{children}</h2>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CargandoMatches
+export default CargandoMatches;

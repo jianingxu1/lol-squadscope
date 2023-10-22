@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-function page({params}) {
-    console.log(params.id)
-  return (
-    <div>hi</div>
-  )
+function page({ params }) {
+  console.log(params.id);
+  return <div>hi</div>;
 }
 
-export default page
+export default page;

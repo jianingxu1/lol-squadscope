@@ -1,7 +1,6 @@
-
-
-.swiper-button-next::after,.swiper-button-prev::after{
-    background-color:midnightblue;
-    padding: 20px;
-    content: "next game";
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  background-color: midnightblue;
+  padding: 20px;
+  content: 'next game';
 }

@@ -1,23 +1,26 @@
-import React from 'react'
-import FilterLeague from './FilterLeague'
-import Error from '../Error'
-import { useLeagues } from '@/hooks/useLeagues'
-function Fomulario({error,setTeam,team,setSelectLeague,selectLeague}) {
- 
+import React from 'react';
+import FilterLeague from './FilterLeague';
+import Error from '../Error';
+import { useLeagues } from '@/hooks/useLeagues';
+function Fomulario({ error, setTeam, team, setSelectLeague, selectLeague }) {
   return (
-    <form className='w-full mx-auto container flex flex-col items-center'>
-    {error && <Error>{error}</Error>}
-       <div className='flex md:gap-2 justify-center w-full'>
-        <div className='lg:ml-10 w-4/5 flex justify-center gap-5'>
-            <input onChange={e=>setTeam(e.target.value)} value={team} type='text' className='py-2 border-2 px-5 border-blue-100' placeholder='Write your favourite team'></input>
-           
+    <form className='container mx-auto flex w-full flex-col items-center'>
+      {error && <Error>{error}</Error>}
+      <div className='flex w-full justify-center md:gap-2'>
+        <div className='flex w-4/5 justify-center gap-5 lg:ml-10'>
+          <input
+            onChange={(e) => setTeam(e.target.value)}
+            value={team}
+            type='text'
+            className='border-2 border-blue-100 px-5 py-2'
+            placeholder='Write your favourite team'
+          ></input>
         </div>
 
-        <FilterLeague  setSelectLeague={setSelectLeague} selectLeague={selectLeague}/>
-
-       </div>
+        <FilterLeague setSelectLeague={setSelectLeague} selectLeague={selectLeague} />
+      </div>
     </form>
-  )
+  );
 }
 
-export default Fomulario
+export default Fomulario;

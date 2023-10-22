@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Error({children}) {
+function Error({ children }) {
   return (
-    <div className='bg-red-500 uppercase text-sm font-bold py-2 px-5 w-fit text-white'>{children} </div>
-  )
+    <div className='w-fit bg-red-500 px-5 py-2 text-sm font-bold uppercase text-white'>
+      {children}{' '}
+    </div>
+  );
 }
 
-export default Error
+export default Error;
