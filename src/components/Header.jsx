@@ -26,9 +26,9 @@ function Header() {
             height={100}
           ></Image>{' '}
         </Link>
-        <h1 className="text-center text-2xl text-gold-100 md:text-3xl">
-          LOL SQUADSCOPE
-        </h1>
+        <h3 className="text-center text-gold-100">
+          LoL SquadScope
+        </h3>
         <div className="flex gap-5">
           <button className="text-3xl text-white">
             <Link href="/search">

@@ -82,9 +82,9 @@
 
 @layer base {
   h1,h2,h3,h4,h5{
-      @apply uppercase tracking-wide;
+      @apply uppercase tracking-wider;
       font-family: 'Beaufort';
-      font-weight: bold;
+      font-weight: 500;
       line-height: 1.1;
       text-transform: uppercase;
   }
