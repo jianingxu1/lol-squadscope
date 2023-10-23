@@ -7,13 +7,11 @@ function FilterLeague({ setSelectLeague, selectLeague }) {
   return (
     <div className=''>
       <select
-        className=' w-32 cursor-pointer rounded-xl border border-blue-100 bg-blue-200 p-2 font-bold text-white'
+        className='w-32 cursor-pointer rounded-sm border border-grey-700 bg-blue-400 p-2 text-white'
         value={selectLeague}
         onChange={(e) => setSelectLeague(e.target.value)}
       >
-        <option value='' className='px-5 py-2'>
-          --LEAGUE--
-        </option>
+        <option value='' className='text-center'>Filter</option>
         {leagues.map((element) => {
           return (
             <option className='bg-blue-300 font-bold' value={element.name} key={Math.random()}>

@@ -2,7 +2,7 @@ import React from 'react';
 import FilterLeague from './FilterLeague';
 import Error from '../Error';
 import { useLeagues } from '@/hooks/useLeagues';
-function Fomulario({ error, setTeam, team, setSelectLeague, selectLeague }) {
+function Formulario({ error, setTeam, team, setSelectLeague, selectLeague }) {
   return (
     <form className='container mx-auto flex w-full flex-col items-center'>
       {error && <Error>{error}</Error>}
@@ -12,15 +12,14 @@ function Fomulario({ error, setTeam, team, setSelectLeague, selectLeague }) {
             onChange={(e) => setTeam(e.target.value)}
             value={team}
             type='text'
-            className='border-2 border-blue-100 px-5 py-2'
-            placeholder='Write your favourite team'
+            className='border-2 border-grey-700 focus:border-grey-700 outline-none bg-blue-700 rounded-sm text-blue-50 px-8 py-2'
+            placeholder='Type your favorite team'
           ></input>
         </div>
-
         <FilterLeague setSelectLeague={setSelectLeague} selectLeague={selectLeague} />
       </div>
     </form>
   );
 }
 
-export default Fomulario;
+export default Formulario;
