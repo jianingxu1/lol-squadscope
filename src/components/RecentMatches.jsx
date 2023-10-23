@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import RecentMatch from './RecentMatch';
-import CargandoMatches from './Loading';
+import { LoadingMatches } from './Loading';
 import { useRecent } from '@/hooks/useRecentMatches';
 import '../app/swipper.css';
 import { Navigation } from 'swiper/modules';
@@ -37,7 +37,7 @@ function RecentMatches() {
       <h3 className='text-center text-gold-100 mb-4'>Recent Matches</h3>
       <div className='text-white '>
         {cargando ? (
-          <CargandoMatches>Loading recent matches...</CargandoMatches>
+          <LoadingMatches>Loading recent matches...</LoadingMatches>
         ) : !favTeam?.name ? (
           <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">

@@ -4,11 +4,11 @@ import { useTeams } from '@/hooks/useTeams';
 import { useRouter } from 'next/navigation';
 import { AiFillDelete } from 'react-icons/ai';
 import React, { Suspense, useContext, useEffect, useState } from 'react';
-import RecentMatches from '@/components/MatchRecent';
+import RecentMatches from '@/components/RecentMatches';
 import { useRecent } from '@/hooks/useRecentMatches';
 import FilaRecentMatch from '@/components/FilaRecentMatch';
-import { useNextGames } from '@/components/NextGames';
-import NextMatch from '@/components/NextMatch';
+import { useUpcomingMatches } from '@/components/UpcomingMatches';
+import UpcomingMatch from '@/components/UpcomingMatch';
 
 function AppTeamComponent({ params }) {
   const router = useRouter();
@@ -35,7 +35,7 @@ function AppTeamComponent({ params }) {
     console.log(data);
   };
   // console.log(team)
-  const { partidos, cargando: loadingNext } = useNextGames(favTeam);
+  const { partidos, cargando: loadingNext } = useUpcomingMatches(favTeam);
   const deleteFav = () => {
     setFavTeam({});
     router.push('/');
@@ -164,7 +164,7 @@ function AppTeamComponent({ params }) {
           {show === 'Show future matches' && (
             <div className='flex justify-center'>
               {partidos.length ? (
-                partidos.map((element) => <NextMatch key={Math.random()} match={element} />)
+                partidos.map((element) => <UpcomingMatch key={Math.random()} match={element} />)
               ) : (
                 <h2 className='text-center text-4xl'> This team has not future matches</h2>
               )}

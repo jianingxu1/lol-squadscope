@@ -7,7 +7,7 @@ import {
   filterLolMatches,
 } from '@/hooks/useMatches';
 import FavTeamContext from '@/context/FavTeam';
-import CargandoMatches from './Loading';
+import { LoadingListOfMatches } from './Loading';
 
 function ListOfMatches() {
   const { matches: games, cargando } = useMatches();
@@ -25,7 +25,7 @@ function ListOfMatches() {
           style={{ transform: `translateX(${-position}px)` }}
         >
           {cargando ? (
-            <CargandoMatches type="Matches">Loading Games...</CargandoMatches>
+            <LoadingListOfMatches type="Matches">Loading Games...</LoadingListOfMatches>
           ) : (
             matchs &&
             matchs.map((element) => (

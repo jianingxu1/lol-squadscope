@@ -10,18 +10,18 @@ const horaSinCero = (hora) => {
   return number;
 };
 
-function NextMatch({ match }) {
+function UpcomingMatch({ match }) {
   const { blockName, league, match: partido, startTime, state } = match;
   const { name } = league;
   const { id, flags, teams, strategy } = partido;
   const { fecha, hora } = SepararFechaYHora(startTime);
   return (
-    <div className='w-full border-4 border-gray-900 bg-blue-700  md:w-3/6 '>
-      <div className='mt-10 text-center text-2xl'>
-        <span> {match?.league.name} </span>
+    <div className='w-full border-4 border-gray-900 bg-blue-700 px-6 py-12'>
+      <div className='text-center text-2xl'>
+        <span className='font-spiegel text-gold-100'> {match?.league.name} </span>
       </div>
 
-      <div className='flex justify-center gap-20 p-10'>
+      <div className='flex justify-center'>
         <div className='flex w-full flex-col items-center overflow-hidden'>
           <p className='text-xl md:text-3xl'> {teams[0].code.split(' ')}</p>
           <div className='flex w-full items-center justify-center '>
@@ -34,7 +34,7 @@ function NextMatch({ match }) {
             />
           </div>
         </div>
-
+        <span className="flex items-center font-spiegel font-bold text-md tracking-widest">VS</span>
         <div className='flex w-full flex-col items-center overflow-hidden'>
           <p className='text-xl md:text-3xl'>{teams[1].code.split(' ')}</p>
           <div className='flex w-full items-center justify-center'>
@@ -48,17 +48,17 @@ function NextMatch({ match }) {
         </div>
       </div>
       {state === 'inProgress' ? (
-        <div className='flex flex-col gap-2 pb-10 text-center'>
-          <p className='text-3xl font-bold text-red-900'>NOW</p>
+        <div className='flex flex-col gap-2 text-center'>
+          <p className='text-3xl font-bold text-red-500'>NOW</p>
         </div>
       ) : (
-        <div className='flex flex-col gap-2 pb-10 text-center'>
-          <p className='text-xl'>{fecha}</p>
-          <p className='text-xl'>{horaSinCero(hora)}</p>
+        <div className='flex flex-col gap-2 text-center'>
+          <span className='text-lg font-spiegel text-white tracking-wider'>{fecha}</span>
+          <span className='text-lg font-spiegel'>{horaSinCero(hora)}</span>
         </div>
       )}
     </div>
   );
 }
 
-export default NextMatch;
+export default UpcomingMatch;

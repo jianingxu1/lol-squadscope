@@ -4,14 +4,14 @@ import { filterMatchStatus } from '@/hooks/useMatches';
 import { useState, useEffect, useContext } from 'react';
 import '../app/swipper.css';
 // Import Swiper React components
-import NextMatch from './NextMatch';
-import CargandoMatches from './Loading';
-export const useNextGames = (favTeam) => {
+import UpcomingMatch from './UpcomingMatch';
+import { LoadingMatches } from './Loading';
+export const useUpcomingMatches = (favTeam) => {
   const [cargando, setCargando] = useState(true);
 
   const [partidos, setPartidos] = useState([]);
   useEffect(() => {
-    const getnextMatches = async () => {
+    const getUpcomingMatches = async () => {
       if (favTeam.name) {
         try {
           //Fetch al calendario general. En el futuro -> Buscar el calendario de la liga del equipo? Ya que cuando empiecen las ligas habran muchos partidos y quizá no sale el del equipo favorito
@@ -48,32 +48,32 @@ export const useNextGames = (favTeam) => {
         setCargando(false);
       }
     };
-    getnextMatches();
+    getUpcomingMatches();
   }, [favTeam]);
 
   return { partidos, cargando };
 };
 
-function NextGames() {
+function UpcomingMatches() {
   const { favTeam } = useContext(FavTeamContext);
-  const { partidos, cargando } = useNextGames(favTeam);
+  const { partidos, cargando } = useUpcomingMatches(favTeam);
   return (
     <section className="container">
       <h3 className="mb-4 text-center text-gold-100">Upcoming match</h3>
-      <div className="flex items-center justify-center text-white">
+      <div className="mx-auto max-w-screen-md flex items-center justify-center text-white">
         {cargando ? (
-          <CargandoMatches>Loading upcoming match...</CargandoMatches>
+          <LoadingMatches>Loading upcoming match...</LoadingMatches>
         ) : !favTeam?.name ? (
-          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+          <div className="bg-hexablack h-72 w-full border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
               <p>You don't have a favourite team.</p>
               <p>Click the "Select your team" button to choose one!</p>
             </div>
           </div>
         ) : partidos?.length > 0 ? (
-          <NextMatch key={partidos[0].id} match={partidos[0]} />
+          <UpcomingMatch key={partidos[0].id} match={partidos[0]} />
         ) : (
-          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+          <div className="bg-hexablack h-72 w-full border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
               <p>There is no upcoming match for your team!</p>
             </div>
@@ -84,4 +84,4 @@ function NextGames() {
   );
 }
 
-export default NextGames;
+export default UpcomingMatches;

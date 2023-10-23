@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <link rel='icon' type='image/svg+xml' href='/lol_favicon.ico' />
       </head>
       <FavTeamProvider>
-        <body className=' bg-slate-950  font-sans '>
+        <body className='bg-slate-950'>
           <Header />
           {children}
         </body>
