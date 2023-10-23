@@ -9,7 +9,13 @@ function Match({ match }) {
   const { fecha, hora } = SepararFechaYHora(match.startTime);
   const teamOne = match?.match?.teams[0];
   const teamTwo = match?.match?.teams[1];
-  const horaFormateada = hora.replace(/[^0-9]+$/, '');
+  const horaSinCero = (hora) => {
+    let number = hora.toString();
+    if (number.charAt(0) === '0') {
+      number = number.slice(1);
+    }
+    return number;
+  };
   return (
     <div className="flex h-48 w-52 shrink-0 flex-col items-center justify-center gap-2 border-l border-t border-grey-500 bg-blue-700 py-1">
       {match.state == 'inProgress' ? (
@@ -85,7 +91,7 @@ function Match({ match }) {
               </div>
             </div>
             <div className="text-white">
-              <p>{horaFormateada}</p>
+              <p>{horaSinCero(hora)}</p>
             </div>
           </>
         )}
