@@ -9,31 +9,30 @@ function FilaRecentMatch({ match }) {
   const { id, flags, teams, strategy } = partido;
   const { fecha, hora } = SepararFechaYHora(startTime);
   return (
-    <div className=' border-2 border-slate-950  bg-blue-700  '>
-      <div className='border-b-2 border-b-slate-950 bg-blue-500 py-1'>
-        <div className=' flex items-center justify-between overflow-hidden'>
+    <div className='bg-blue-700'>
+      <div className='rounded-sm border-x-4 border-t-4 border-grey-700 bg-blue-500 py-1'>
+        <div className='flex items-center justify-between overflow-hidden px-2'>
           <p className='w-1/4 text-left lg:text-3xl'>{fecha}</p>
-          <p className='text-sm font-bold lg:text-3xl '>
+          <p className='text-sm font-bold tracking-wider lg:text-3xl '>
             {' '}
             {match.league.name} - <span>{blockName}</span>
           </p>
           <div>
             <button
-              className='bg-blue-700  px-2 py-1 transition-all duration-300 hover:bg-blue-800 lg:text-2xl'
+              className='rounded-sm border-2 border-grey-700 bg-blue-700 px-2 py-1 font-spiegel text-slate-300 transition-all duration-300 hover:bg-blue-400 lg:text-2xl'
               onClick={() => router.push(`/match/${id}`)}
             >
-              See match
+              More info
             </button>
           </div>
         </div>
       </div>
-      <div className=' flex items-center py-2'>
+      <div className='flex items-center rounded-sm border-x-4 border-b-4 border-grey-700 px-2 py-2'>
         <div className='w-6/6 md:w-1/6 md:text-2xl'>
-          <span className=''>{hora} </span>
+          <span className='font-spiegel'>{hora}</span>
         </div>
-
-        <div className='flex items-center  justify-center md:w-5/6 xl:w-5/6'>
-          <div className='flex  w-1/5 items-center justify-end'>
+        <div className='flex items-center justify-center gap-2 md:w-5/6 xl:w-5/6'>
+          <div className='flex w-1/5 items-center justify-end gap-2'>
             <p className='xl:text-4xl'>{teams[0].code}</p>
             <img
               className='imagen-responsive'
@@ -44,16 +43,16 @@ function FilaRecentMatch({ match }) {
             />
           </div>
 
-          <div className='flex gap-2 pl-2'>
-            <p className='bg-cyan-900 text-2xl lg:rounded-lg lg:px-2 lg:py-2 lg:text-4xl'>
+          <div className='flex gap-3 font-spiegel'>
+            <p className='bg-hexblack p-1 border border-blue-500 text-2xl lg:rounded-lg lg:px-2 lg:py-2 lg:text-4xl'>
               {teams[0].result.gameWins}
             </p>
-            <p className='bg-cyan-900 text-2xl lg:rounded-lg lg:px-2 lg:py-2 lg:text-4xl'>
+            <p className='bg-hexblack p-1 border border-blue-500 text-2xl lg:rounded-lg lg:px-2 lg:py-2 lg:text-4xl'>
               {teams[1].result.gameWins}
             </p>
           </div>
 
-          <div className='flex w-1/5  items-center justify-center'>
+          <div className='flex w-1/5 items-center justify-center gap-2'>
             <img
               className='imagen-responsive'
               src={teams[1].image}
