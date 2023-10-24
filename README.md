@@ -4,6 +4,10 @@
 
 LOL SquadScope is your go-to platform for tracking your favorite League of Legends esports team, their upcoming matches, and recent results. Experience a seamless interface designed for true esports enthusiasts.
 
+<div align="center">
+  <img width="400" height="400" alt="Preview of the Squadscope page" src="https://github.com/huiyuan12/Lol/blob/main/public/img/squadscope-preview.png">
+</div>
+
 ## Key Features
 
 - **Team Tracking**: Stay updated with your favorite League of Legends teams.
