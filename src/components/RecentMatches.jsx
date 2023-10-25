@@ -41,8 +41,8 @@ function RecentMatches() {
         ) : !favTeam?.name ? (
           <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
-              <p>You don't have a favourite team.</p>
-              <p>Click the "Select your team" button to choose one!</p>
+              <p>You don&apos;t have a favourite team.</p>
+              <p>Click the &quot;Select your team&quot; button to choose one!</p>
             </div>
           </div>
         ) : favTeamGames.length > 1 ? (
