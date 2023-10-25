@@ -12,7 +12,7 @@ function Formulario({ error, setTeam, team, setSelectLeague, selectLeague }) {
             onChange={(e) => setTeam(e.target.value)}
             value={team}
             type='text'
-            className='border-2 border-grey-700 focus:border-grey-700 outline-none bg-blue-700 rounded-sm text-blue-50 px-8 py-2'
+            className='border-2 border-grey-700 focus:border-grey-700 outline-none bg-blue-700 rounded-sm text-blue-50  px-5 md:px-8 py-2'
             placeholder='Type your favorite team'
           ></input>
         </div>

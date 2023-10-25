@@ -11,7 +11,7 @@ function FilterLeague({ setSelectLeague, selectLeague }) {
         value={selectLeague}
         onChange={(e) => setSelectLeague(e.target.value)}
       >
-        <option value='' className='text-center'>Filter</option>
+        <option value='' disabled={true} className='text-center'>Filter</option>
         {leagues.map((element) => {
           return (
             <option className='bg-blue-300 font-bold' value={element.name} key={Math.random()}>
