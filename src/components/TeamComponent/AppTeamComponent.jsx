@@ -18,7 +18,9 @@ function AppTeamComponent({ params }) {
   const [team, setTeam] = useState({});
   const [deleteTeam, setDelete] = useState(false);
   const [show, setShow] = useState();
-  const { favTeam, cargando, favTeamGames } = useRecent();
+  let { favTeam, cargando, favTeamGames } = useRecent();
+
+  favTeamGames = favTeamGames.filter(match => match.state != "unstarted");
   //console.log(favTeam)
 
   const handleTeams = async () => {

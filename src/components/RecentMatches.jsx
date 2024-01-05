@@ -15,10 +15,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import FilaRecentMatch from './FilaRecentMatch';
 function RecentMatches() {
-  const { favTeam, cargando, favTeamGames } = useRecent();
+  let { favTeam, cargando, favTeamGames } = useRecent();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  favTeamGames = favTeamGames.filter(match => match.state != "unstarted");
   const disableNext = currentIndex === favTeamGames.length - 1;
-  //console.log(favTeamGames)
+
+
   const disablePrev = currentIndex >= 1;
   const showNextElement = (index) => {
     if (disableNext) return;
