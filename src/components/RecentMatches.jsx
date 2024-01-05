@@ -36,7 +36,7 @@ function RecentMatches() {
   };
   const swiper = useSwiper();
   return (
-    <section className='container flex-col flex items-center px-4'>
+    <section className='container flex-col flex items-center'>
       <h3 className='text-center text-gold-100 mb-4'>Recent Matches</h3>
       <div className='text-white max-w-screen-md flex items-center'>
         {cargando ? (

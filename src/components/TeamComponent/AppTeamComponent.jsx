@@ -53,7 +53,7 @@ function AppTeamComponent({ params }) {
   }, [teams]);
 
   return (
-    <div className='container mx-auto bg-slate-950 pb-8'>
+    <div className='container mx-auto bg-slate-950 pb-8 px-4'>
       <button className=' text-white' onClick={() => setDelete(!deleteTeam)}>
         <AiFillDelete className='text-4xl' />
       </button>
@@ -138,7 +138,7 @@ function AppTeamComponent({ params }) {
             )
           ) : (
             show === 'Show players' && (
-              <ul className='grid grid-cols-1 gap-5 text-3xl md:grid-cols-3 xl:grid-cols-4'>
+              <ul className='grid grid-cols-2 gap-5 text-3xl sm:grid-cols-3 xl:grid-cols-4'>
                 {team?.players?.map((element) => (
                   <li key={element.id}>
                     <div className='rounded-xl bg-cyan-900 px-5 py-2 text-center'>
