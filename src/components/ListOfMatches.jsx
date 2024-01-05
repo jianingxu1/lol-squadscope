@@ -37,7 +37,7 @@ function ListOfMatches() {
       {
         <div className="">
           <button
-            onClick={() => setPosition(position + 350)}
+            onClick={() => setPosition(position + 208)}
             className="absolute right-0 top-0 h-full w-12 border-l border-grey-500 bg-hexblack text-blue-300 opacity-80"
           >
             {' '}
@@ -45,7 +45,7 @@ function ListOfMatches() {
           </button>
           {position > 0 && (
             <button
-              onClick={() => setPosition(position - 350)}
+              onClick={() => setPosition(position - 208)}
               className="absolute left-0 top-0 h-full w-12 border-r border-grey-500 bg-hexblack text-blue-300 opacity-80"
             >
               {' '}

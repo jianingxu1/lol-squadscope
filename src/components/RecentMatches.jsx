@@ -36,43 +36,24 @@ function RecentMatches() {
   };
   const swiper = useSwiper();
   return (
-    <section className='container mx-auto'>
+    <section className='container flex-col flex items-center px-4'>
       <h3 className='text-center text-gold-100 mb-4'>Recent Matches</h3>
-      <div className='text-white '>
+      <div className='text-white max-w-screen-md flex items-center'>
         {cargando ? (
           <LoadingMatches>Loading recent matches...</LoadingMatches>
         ) : !favTeam?.name ? (
-          <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
+          <div className="bg-hexablack h-48 border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
               <p>You don&apos;t have a favourite team.</p>
               <p>Click the &quot;Select your team&quot; button to choose one!</p>
             </div>
           </div>
         ) : favTeamGames.length > 1 ? (
-          <>
-            <div className='flex flex-col gap-5 md:hidden'>
-              {/**<button className={`text-white ${disablePrev ?"bg-blue-500 hover:bg-blue-600" :"bg-red-500"} transition-all duration-500 h-max px-10 text-black py-5 font-bold uppercase`} onClick={showPrevElement}> Previous Game</button> */}
-              {favTeamGames.map((element) => (
-                <FilaRecentMatch match={element} key={Math.random()} />
-              ))}
-              {/**  <button disabled={disableNext} className={`text-white ${disableNext?"bg-red-500":"bg-blue-500 hover:bg-blue-600"} transition-all duration-500  px-10 py-5 font-bold uppercase`} onClick={()=>showNextElement(favTeamGames.length)} > Next Game</button> */}
-            </div>
-
-            {/**<div className='hidden md:flex justify-center items-center'></div></div></div></div></div></div></div></div>
-              <button className={`text-white ${disablePrev ?"bg-blue-500 hover:bg-blue-600" :"bg-red-500"} transition-all duration-500 h-max px-10 text-black py-5 font-bold uppercase`} onClick={showPrevElement}> Previous Game</button> */}
-
-            <div className='hidden md:block'>
-              <Swiper navigation={true} modules={[Navigation]}>
-                {favTeamGames.map((element) => (
-                  <SwiperSlide key={Math.random()}>
-                    <RecentMatch match={element} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-            {/** <button  disabled={disableNext} className={`text-white ${disableNext?"bg-red-500":"bg-blue-500 hover:bg-blue-600"} transition-all duration-500  px-10 py-5 font-bold uppercase`} onClick={()=>showNextElement(favTeamGames.length)} > Next Game</button>
-              </div> */}
-          </>
+          <div className='flex flex-col gap-5 mx-auto'>
+            {favTeamGames.map((element) => (
+              <FilaRecentMatch match={element} key={Math.random()} />
+            ))}
+          </div>
         ) : (
           <div className="bg-hexablack h-48 w-full border-4 border-gray-900">
             <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">

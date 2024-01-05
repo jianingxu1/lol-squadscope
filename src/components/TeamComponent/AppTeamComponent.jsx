@@ -53,7 +53,7 @@ function AppTeamComponent({ params }) {
   }, [teams]);
 
   return (
-    <div className='container mx-auto h-screen bg-slate-950'>
+    <div className='container mx-auto bg-slate-950 pb-8'>
       <button className=' text-white' onClick={() => setDelete(!deleteTeam)}>
         <AiFillDelete className='text-4xl' />
       </button>
@@ -95,13 +95,13 @@ function AppTeamComponent({ params }) {
             <span className='text-3xl font-bold'>{team?.homeLeague?.region}</span>
           </p>
           <nav className='mb-5'>
-            <ul className='flex flex-col text-center md:mb-10 md:flex-row md:gap-5'>
+            <ul className='flex flex-col items-center justify-center text-center md:mb-10 md:flex-row gap-4'>
               <li>
                 <input
                   type='button'
                   className={`${
                     show === 'Show last matches' ? 'font-bold text-black' : 'text-white'
-                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-2xl`}
+                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-lg`}
                   onClick={(e) => handleMenu(e)}
                   value='Show last matches'
                 ></input>
@@ -112,7 +112,7 @@ function AppTeamComponent({ params }) {
                   type='button'
                   className={`${
                     show === 'Show players' ? 'font-bold text-black' : 'text-white'
-                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-2xl`}
+                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-lg`}
                   onClick={(e) => handleMenu(e)}
                   value='Show players'
                 ></input>
@@ -123,7 +123,7 @@ function AppTeamComponent({ params }) {
                   type='button'
                   className={`${
                     show === 'Show future matches' ? 'font-bold text-black' : 'text-white'
-                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-2xl`}
+                  } cursor-pointer rounded-xl bg-blue-800 px-2 py-2 font-bold uppercase hover:bg-blue-900 md:text-lg`}
                   onClick={(e) => handleMenu(e)}
                   value='Show future matches'
                 ></input>
@@ -132,7 +132,7 @@ function AppTeamComponent({ params }) {
           </nav>
           {show === 'Show last matches' ? (
             favTeamGames.length ? (
-              favTeamGames.map((element) => <FilaRecentMatch key={Math.random()} match={element} />)
+              <RecentMatches></RecentMatches>
             ) : (
               <h2 className='text-center text-3xl '>This team has not recent games </h2>
             )

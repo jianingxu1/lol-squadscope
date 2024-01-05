@@ -12,14 +12,14 @@ function FilaRecentMatch({ match }) {
     <div className='bg-blue-700'>
       <div className='rounded-sm border-x-4 border-t-4 border-grey-700 bg-blue-500 py-1'>
         <div className='flex items-center justify-between overflow-hidden px-2'>
-          <p className='w-1/4 text-left lg:text-3xl'>{fecha}</p>
-          <p className='text-sm font-bold tracking-wider lg:text-3xl '>
+          <p className='text-left lg:text-xl'>{fecha}</p>
+          <p className='text-md font-bold tracking-wider md:text-lg lg:text-xl'>
             {' '}
             {match.league.name} - <span>{blockName}</span>
           </p>
           <div>
             <button
-              className='rounded-sm border-2 border-grey-700 bg-blue-700 px-2 py-1 font-spiegel text-slate-300 transition-all duration-300 hover:bg-blue-400 lg:text-2xl'
+              className='rounded-sm border-2 border-grey-700 bg-blue-700 px-2 py-1 font-spiegel text-slate-300 transition-all duration-300 hover:bg-blue-400 lg:text-md'
               onClick={() => router.push(`/match/${id}`)}
             >
               More info
@@ -28,12 +28,12 @@ function FilaRecentMatch({ match }) {
         </div>
       </div>
       <div className='flex items-center rounded-sm border-x-4 border-b-4 border-grey-700 px-2 py-2'>
-        <div className='w-6/6 md:w-1/6 md:text-2xl'>
+        <div className='md:text-md'>
           <span className='font-spiegel'>{hora}</span>
         </div>
         <div className='flex items-center justify-center gap-2 md:w-5/6 xl:w-5/6'>
           <div className='flex w-1/5 items-center justify-end gap-2'>
-            <p className='xl:text-4xl'>{teams[0].code}</p>
+            <p className='lg:text-xl'>{teams[0].code}</p>
             <img
               className='imagen-responsive'
               src={teams[0].image}
@@ -60,7 +60,7 @@ function FilaRecentMatch({ match }) {
               height={30}
               alt={`imagen equipo ${teams[1].name}`}
             />
-            <p className='xl:text-4xl'>{teams[1].code}</p>
+            <p className='lg:text-xl'>{teams[1].code}</p>
           </div>
         </div>
       </div>
