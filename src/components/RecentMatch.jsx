@@ -32,10 +32,10 @@ function RecentMatch({ match }) {
               <p className='text-4xl'> {teams[0].code.split(' ')}</p>
               <p
                 className={`${
-                  teams[0].result.outcome === 'win' ? ' text-amber-500' : ' text-red-700'
+                  teams[0].result.outcome === 'win' ? 'text-blue-800' : 'text-red-700'
                 } text-center text-3xl font-extrabold`}
               >
-                {teams[0].result.outcome.toUpperCase()}
+                {teams[0]?.result?.outcome?.toUpperCase()}
               </p>
               <div className='flex items-center justify-center '>
                 <img
@@ -53,10 +53,10 @@ function RecentMatch({ match }) {
               <p className='text-4xl'>{teams[1].code.split(' ')}</p>
               <p
                 className={`${
-                  teams[1].result.outcome === 'win' ? 'text-blue-900' : 'text-red-900'
+                  teams[1].result.outcome === 'win' ? 'text-blue-800' : 'text-red-700'
                 } text-center text-3xl font-extrabold`}
               >
-                {teams[1].result.outcome.toUpperCase()}
+                {teams[1]?.result?.outcome?.toUpperCase()}
               </p>
               <div className='flex items-center justify-center '>
                 <p className='text-2xl '> {teams[1].result.gameWins} </p>
