@@ -43,7 +43,7 @@ function RecentMatches() {
           <LoadingMatches>Loading recent matches...</LoadingMatches>
         ) : !favTeam?.name ? (
           <div className="bg-hexablack h-48 border-4 border-gray-900">
-            <div className="flex h-full flex-col items-center justify-center text-center text-5xl text-grey-100">
+            <div className="flex h-full flex-col w-full px-8 items-center justify-center text-center text-5xl text-grey-100">
               <p>You don&apos;t have a favourite team.</p>
               <p>Click the &quot;Select your team&quot; button to choose one!</p>
             </div>
